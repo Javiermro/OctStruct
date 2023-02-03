@@ -1,0 +1,102 @@
+$ TITULO DEL PROYECTO
+TITULO: 15 x Galva
+
+$ FECHA: [dd/mm/aaaa]
+FECHA: 10/08/2022
+
+$ CALCULISTA:
+CALCULISTA: ING. OSCAR CANAVESIO
+
+$ SOLICITANTE 
+SOLICITANTE: ING. XXX YYY
+
+$ UNIDADES [m,N,Pa]
+
+$ MODELO de Cerchas (1,2,...)
+MODELO 5
+
+$ Pendiente cumbrera [0.15 - 0.20] en % 
+PENDIENTE 
+
+$ separación entre correas [1.25m - 1.05m]
+CORREAS
+
+$ Brazo de palanca de la cercha, h [en %, por defecto es 0.03*L]
+BRAZO $0.03
+
+$ Geometría: Bc = ancho de columna [m]; 
+$            Hc = altura de columna [m]; 
+$            L  = luz total de la cercha (desde ejes de columnas) [m]; 
+$            Lc = separación entre cerchas [m]; 
+$            Lt = longitud de la cumbrera [m]
+$            f  = flecha minima para cubiertas curvas [m], desde Hc hasta la altura interior
+GEOMETRIA $ Bc Hc L Lc Lt (OBLIGATORIOS)
+0.45  7.0  15.40  5.0  45.0  $4.0
+
+$ Material: Acero [F24] ; 
+$           Hormigón [H30] Reglamento viejo
+ACERO  F24  
+HORMIGON  H21
+
+$ Columnas: b  = ancho (m) paralelo a cumbrera; 
+$           h  = altura (m) perpend. a cumbrera (de flexion); 
+$           Db = diametro de barras (mm); 
+$           nb = cantidad de barras; 
+$           De = diámetro de estribos (mm); 
+$           Se = separación de estribos (m)
+COLUMNAS $ b     h  Db nb De    Se
+0.20  0.45  16  5  6  0.20
+
+$ Fundaciones: Hf = profundidad de fundación (m), desde el nivel de terreno hasta la cota de fundación,
+$              t  = Altura de la base de hormigón (m)
+$              a  = Lado de la base de hormigón, perpend. a cumbrera (m)
+$              b  = Lado de la base de hormigón, paralelo a cumbrera (m)
+$              C  = Coeficiente de Balasto a 2mts de profundidad [kg/cm^3]  	
+$              am = tangente del ángulo de giro permitido de la base 
+$              gm = Mínima relación entre los momentos dados por Sulzberguer y el momento de volcamiento.
+FUNDACIONES $ Hf     t     a     b    C     am   gm
+              2.3  2.00  0.90  0.90  5.0  0.01  1.5 
+
+$ Estado de cargas reglamentarias: C1*D + C2*W + C3*Lt (D = peso propio; W = viento perpendicular y paralelo cumbrera, hasta 12 posibles subestados; Lt = Cargas de uso)
+FACTORES 1.2 0.8 0.0
+$ CARGAS: Peso propio cubierta [N/m^2] , Sobre carga de Uso [N/m^2]
+CARGAS   40 0.0
+
+$EXPOSICION Y USO: Exposicion [A B C D]; Categoría [I II III IV]; Viento [m/seg], Características [Cerrado PCerrado Aislado Otro] 
+USO B II 45 Cerrado
+
+$ Predimensionado, se asigna manualmente los perfiles para ser verificados CS=cordon superior, CI=cordón inferior, DI=diagonal, MO=montante, CO=Correa
+PREDIMENSIONADO
+CS U-128-*-00-2.50
+CI U-128-*-00-3.20
+DI U-128-*-00-*
+DA U-128-*-00-*
+CO C-120-50-15-2.0
+$CS *-*-*-*-*
+$CI *-*-*-*-*
+$DI *-*-*-*-*
+$DA *-*-*-*-*
+$CO C-120-50-15-2
+
+$CS U-128-50-0-2.5
+$CI G-88-50-25-3.2 
+$DI U-128-50-0-2.5
+$DA U-128-50-0-2.5
+$CO C-120-50-15-2
+
+
+$CS G-140-60-40-3
+$CI G-140-60-40-3
+$DI C-140-60-40-1
+$DA C-140-60-40-2
+$CS G-140-*-*-*
+$CI G-140-*-*-*
+$DI U-140-*-00-*
+$DA U-140-*-00-*
+$ Cordón superior (CS): G-140-80-40-2 
+$ Cordón inferior (CI): G-140-140-140-1 
+$ Cordón diagonal (DI): U-140-40-0-3 
+$ Cordón d. apoyo (DA): U-140-20-0-3 
+  
+
+END

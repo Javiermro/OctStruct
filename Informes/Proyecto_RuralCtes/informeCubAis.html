@@ -1,0 +1,1467 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>informeCubAis</title><meta name="generator" content="MATLAB 9.8"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-12-20"><meta name="DC.source" content="informeCubAis.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#3"><b>Memoria de c&aacute;lculo: Estructura de techo</b></a></li></ul></div><h2 id="3"><b>Memoria de c&aacute;lculo: Estructura de techo</b></h2><pre class="codeoutput"> Cubierta aislada polideportivo 
+
+   
+ FECHA: 16/12/2022 
+ CALCULISTA: ING. OSCAR CANAVESIO 
+ SOLICITANTE: Sociedad Rural Corrientes 
+
+   </pre><p><b>1.- Consideraciones generales</b></p><p>En la presente memoria de c&aacute;lculo se emplear&aacute;n los siguientes lineamientos:</p><div><ul><li>Para la determinaci&oacute;n de las cargas de viento, se emplear&aacute;n el Reglamento argentino de acci&oacute;n del viento sobre las construcciones CIRSOC 102 (edici&oacute;n de Julio 2005) y los Comentarios al reglamento argentino de acci&oacute;n del viento sobre las construcciones CIRSOC 102 (edici&oacute;n de Julio 2005).</li></ul></div><div><ul><li>Con respecto a la verificaci&oacute;n de la estructura principal y secundaria, de chapa plegada, tanto como correas y vigas caj&oacute;n, el procedimiento de c&aacute;lculo ser&aacute; basado por la recomendaci&oacute;n al CIRSOC 302 (Edici&oacute;n de Noviembre de 2001).</li></ul></div><div><ul><li>Para el dimensionamiento de los elementos de hormig&oacute;n armado ser&aacute; empleado el reglamento CIRSOC 201.</li></ul></div><p><b>2.- Datos generales de la estructura</b></p><p>Se adjunta al presente informe la planta de estructura.</p><pre class="codeoutput">Lado Mayor L: 60.00m.
+Lado Menor B: 30.00m.
+Altura de cabeza de columna h: 3.50m.
+Pendiente: 12.41&ordm; 
+Ubicaci&oacute;n: ?UBICACION. 
+Destino: ?DESTINO. 
+</pre><p><b>3.- Determinaci&oacute;n de las cargas de viento</b></p><p><i><b>3.1.- Determinaci&oacute;n de la Presi&oacute;n Din&aacute;mica (CIRSOC 102-2005, Art. 5.10)</b></i></p><p><b>q = 0.613 &middot; kz &middot; kzt &middot; kd &middot; I &middot; v&sup2;</b></p><p>Caracter&iacute;sticas de la estructura seg&uacute;n reglamento:</p><pre class="codeoutput">Exposici&oacute;n: B. 
+Factor topogr&aacute;fico: Kzt = 1.00. 
+Factor de direccionalidad. Kd = 0.85. 
+Factor de Importancia: I = 1. 
+Velocidad b&aacute;sica de viento: v = 46.00 [m/s].  
+Tipo de edificio: Aislado
+Relaci&oacute;n de bloqueo &#950; = 0.10 
+Coeficiente de exposici&oacute;n para la presi&oacute;n din&aacute;mica en funci&oacute;n de la altura de la estructura (Art. 5.6.4.):  
+</pre><pre class="codeoutput">|| Z[m] |  Kz  | q[N/m&sup2;]|| 
+|| 3.50 | 0.59 | 649.94 || 
+|| 4.89 | 0.59 | 649.94 || 
+|| 6.28 | 0.63 | 693.65 || 
+|| 7.67 | 0.67 | 734.42 || 
+|| 5.58 | 0.61 | 670.79 || 
+</pre><p><i>Tabla 1: Factores Kz y presi&oacute;n qz.</i></p><p>Donde la &uacute;ltima fila corresponde a la altura media de la cubierta, la cual definir&aacute; la presi&oacute;n <b>qh</b>.</p><p><i><b>3.2.- Determinaci&oacute;n de las presiones de dise&ntilde;o.</b></i></p><p>Su determinaci&oacute;n para cubiertas aisladas est&aacute; definida por el Anexo I del reglamento el cual establece la siguiente expresi&oacute;n:</p><p><b>p = qh &middot; G &middot; Cpn [N/m2]</b></p><p><b>qh</b> presi&oacute;n din&aacute;mica evaluada a la altura media de cubierta, h ;</p><p><b>G</b> el factor de efecto de r&aacute;faga seg&uacute;n el art&iacute;culo 5.8.;</p><p><b>Cpn</b> el coeficiente de presi&oacute;n neta, Tablas I.1, I.2 e I.3;</p><pre class="codeoutput">Presi&oacute;n din&aacute;mica para la altura media qh = 670.79 
+Factor de efecto r&aacute;faga G = 0.85 
+||   Caso de   |     Coeficientes  || 
+||       Carga |     Globales  || 
+||   M&aacute;x. p/todo &#950;    |       0.40     || 
+||   M&iacute;n. p/&#950;=0.10   |       -0.79    || 
+</pre><p>Tabla 2: Coeficientes Cpn.</p><pre class="codeoutput">||   Caso de   |     Presiones  || 
+||       Carga |     Globales [N/m&sup2;] || 
+||   M&aacute;x. p/todo &#950;    |       228.07     || 
+||   M&iacute;n. p/&#950;=0.10   |       -452.34    || 
+</pre><p>Tabla 3: Presiones resultantes.</p><p><b>4.- An&aacute;lisis de cargas</b></p><p>De acuerdo con el art&iacute;culo A.4.3 del CIRSOC 303-2009 la resistencia requerida de la estructura y de sus distintos componentes estructurales se determinar&aacute; a partir de la combinaci&oacute;n de acciones mayoradas m&aacute;s desfavorables. Se tendr&aacute; en cuenta que muchas veces la mayor resistencia requerida resulta de una combinaci&oacute;n en que una o m&aacute;s acciones no est&aacute;n actuando.</p><pre class="codeoutput">1.2&middot;D + 1.6&middot;Lr + 0.8&middot;W    (A.4.3-3) 
+1.2&middot;D + 1.6&middot;W + f1&middot;Lr     (A.4.3-4) (1)
+1.20&middot;D + 0.80&middot;W          (A.4.3-6) (2)
+</pre><p>(1) f1 = 0,5 para otras configuraciones de cargas seg&uacute;n el art&iacute;culo A.4.3 del CIRSOC 303-2009.</p><p>(2) Se podr&aacute; usar 1,5 como factor de carga para viento (W) cuando se consideren las velocidades b&aacute;sicas de viento <i>V</i> del reglamento CIRSOC 102-2005.</p><p>Analizando la combinaci&oacute;n de cargas de la expresi&oacute;n (A.4.3-3), que tiene en cuenta una sobrecarga de uso por montaje o reparaciones m&aacute;s la carga de viento obtenida en funci&oacute;n de una r&aacute;faga de viento de 50 a&ntilde;os de recurrencia, se llega a la conclusi&oacute;n de su poca probabilidad de ocurrencia y a fin de maximizar la eficiencia de la estructura se considera como carga de dise&ntilde;o a la determinada por la expresi&oacute;n (A.4.3-6).</p><p>Se proceder&aacute; a la alineaci&oacute;n de las cargas sobre las correas cuya separaci&oacute;n es:</p><pre class="codeoutput">SepCorreas = 1.46m
+</pre><p>Se considera la presi&oacute;n global del viento sobre la estructura.</p><p><i><b>4.1.- Determinaci&oacute;n de D:</b></i></p><p>Peso Propio de cubiertas de chapas:</p><pre class="codeoutput">PPcub = 40.00N/m&sup2;&middot;1.46m = 58.33N/m
+</pre><p>Peso Propio de correas:</p><pre class="codeoutput">PPcorr = 37.19N/m
+</pre><p>Peso total:</p><pre class="codeoutput">D = 95.51N/m</pre><p><i><b>4.2.- Determinaci&oacute;n de W actuante en las correas:</b></i></p><p><i>Succi&oacute;n:</i></p><pre class="codeoutput">W = -380.67N/m 
+</pre><p><i>Presi&oacute;n:</i></p><pre class="codeoutput">W = 454.30N/m
+</pre><p>Por lo tanto, las cargas de dise&ntilde;o para las correas ser&aacute;n dos. Para el caso predominante de succi&oacute;n:</p><pre class="codeoutput">qSuc = -189.92N/m
+</pre><p>Para el caso predominante de presi&oacute;n:</p><pre class="codeoutput">qPre = 478.06N/m
+</pre><p><b>5- Solicitaciones en las correas.</b></p><p>Se presentan a continuaci&oacute;n las solicitaciones para el caso de carga concentrada y un caso de solicitaci&oacute;n por carga de viento.</p><p><i><b>5.1.- Carga Puntual en tramo exterior.</b></i></p><p><img vspace="5" hspace="5" src="Fig_Correas_Mf1.png" alt=""> </p><p><img vspace="5" hspace="5" src="Fig_Correas_Q1.png" alt=""> </p><p><i><b>5.2.- Carga Puntual en tramo interior.</b></i></p><p><img vspace="5" hspace="5" src="Fig_Correas_Mf2.png" alt=""> </p><p><img vspace="5" hspace="5" src="Fig_Correas_Q2.png" alt=""> </p><p><i><b>5.3.- Carga de viento en correas (Succi&oacute;n).</b></i></p><p><img vspace="5" hspace="5" src="Fig_Correas_Mf3.png" alt=""> </p><p><img vspace="5" hspace="5" src="Fig_Correas_Q3.png" alt=""> </p><p><i><b>5.4.- Carga de viento en correas (Presi&oacute;n).</b></i></p><p><img vspace="5" hspace="5" src="Fig_Correas_Mf4.png" alt=""> </p><p><img vspace="5" hspace="5" src="Fig_Correas_Q4.png" alt=""> </p><p><b>6.- Dimensionamiento y verificaci&oacute;n de las correas de la estructura</b></p><p>Se procede a la verificaci&oacute;n de un perfil abierto C seg&uacute;n los requerimientos establecidos por la norma CIRSOC 303-2009 para la resistencia a la flexi&oacute;n y a corte para las solicitaciones de la carga de dise&ntilde;o y la resistencia de dise&ntilde;o a carga concentrada.</p><p><img vspace="5" hspace="5" src="Perfil-C.png" alt=""> </p><p>Fig: Esquema del perfil adoptado para correas.</p><pre class="codeoutput">Perfil C-120-50-15-2
+</pre><p>Propiedades del perfil:</p><pre class="codeoutput">B = 50.0mm    t = 2.00mm
+R = 3.00mm    Ht = 120.00mm
+A = 4.74cm&sup2;
+Ixx = 105.83cm&#8308;  Iyy = 15.94cm&#8308;
+rx = 4.73cm    ry = 1.83cm
+Cw = 496.23cm&#8310;  J = 0.06cm&#8308;
+x0 = -3.79cm    r0 = 6.33cm
+</pre><p>1) Verificaci&oacute;n de la relaci&oacute;n de esbeltez</p><p><b>Elemento 1 - Alma</b>:</p><pre class="codeoutput">h/t = 56   &lt;  500 B.C.
+</pre><p><b>Elemento 2 - Ala</b>:</p><pre class="codeoutput">d/t = 21   &lt;  60 B.C.
+</pre><p><b>Elemento 3 - Labio</b>:</p><pre class="codeoutput">b1/t = 5.50   &lt;  60 B.C.
+</pre><p>2) Verificaci&oacute;n de la efectividad de la secci&oacute;n</p><p>En funci&oacute;n de los Arts. B.2.1, B.3.1 y B.4.2 se determina lo siguiente con respecto a la efectividad de la secci&oacute;n del perfil:</p><pre class="codeoutput">El &aacute;rea del perfil A = 4.74cm&sup2; es totalmente efectiva.
+</pre><p>3) Resistencia de dise&ntilde;o a la flexi&oacute;n.</p><p>a) Resistencia nominal por viga lateral arriostrada en forma continua secci&oacute;n totalmente efectiva y con secci&oacute;n transversal sim&eacute;trica respecto al eje de flexi&oacute;n. (Art. C.3.1.1)</p><pre class="codeoutput">Md = Mn&middot;&Oslash; = 3937.78kNm &gt; Mm&aacute;x = 2239.36kNm  B.C.
+</pre><p>b) Resistencia al pandeo lateral torsional. (Art. C.3.1.1): Se adoptan arriostramientos a los tercios de la luz.</p><pre class="codeoutput">Md = &Oslash;b&middot;Mn = 0.9&middot;Sc&middot;Fc&middot;0.001 = 3010.97kNm &gt; Mm&aacute;x = 1876.41kNm  B.C.
+</pre><p><b>Aclaraci&oacute;n:</b> Para la resistencia al Pandeo Lateral Torsional se tom&oacute; a la correa como arriostrada (inferiormente) en los tercios de la luz. Adem&aacute;s se realiz&oacute; una reducci&oacute;n del Mm&aacute;x de trabajo, al considerar una correcci&oacute;n por cargas no aplicadas en el centro de corte de la secci&oacute;n (Ver <i>'Estructuras de Acero,  Parte II - Gabriel Troglia'</i> Ej.n&deg;9, P&aacute;g. 77.)</p><p>4) Resistencia de Dise&ntilde;o al corte. (Art. C.3.2.1)</p><pre class="codeoutput">Vd = &Oslash;v&middot;Vn = 0.95&middot;Aw&middot;Fv&middot;0.01 = 30004.80kN &gt; Vm&aacute;x = 1375.77kN  B.C.
+</pre><p>5) Resistencia de dise&ntilde;o al pandeo localizado en el alma.</p><p>Se realiza el siguiente an&aacute;lisis para cargas concentradas de uso de 1Kn para almas sin perforaciones (Art. C.3.4.1.)</p><p>a) Reacci&oacute;n en el apoyo</p><p>El ala se encuentra unida al apoyo y se considera una longitud de apoyo igual a 4cm, y la distancia entre el borde del apoyo al extremo de la barra igual a 1,5h = 16,8cm.</p><pre class="codeoutput">Pd = &Oslash;N&middot;PN = 5995.48kN &gt; 2575.85kN  B.C.
+</pre><p>6) Verificaci&oacute;n de las deformaciones en estado de servicio. (Art. A.4.4.)</p><p>Se verifica con carga de servicio:</p><pre class="codeoutput">fx = 0.01cm &lt; 0.02cm = fm&aacute;x = L/250   B.C.
+</pre><p><b>7.- C&aacute;lculo de las solicitaciones de los elementos de la cercha y las columnas.</b></p><p><img vspace="5" hspace="5" src="Fig_structure.png" alt=""> </p><p><img vspace="5" hspace="5" src="Fig_state1.png" alt=""> </p><p>Esquema de estructura con cargas aplicadas, correspondientes al estado 1 debido a Viento.</p><pre class="codeoutput">||Barra |      Perfil      | Long.[m] |Comp.M&aacute;x.[N]|Trac.M&aacute;x[N]||
+|| S01  |  U-170-60-0-4.75  |  1.46    |   -41877    |    0   ||
+|| S02  |  U-170-60-0-4.75  |  1.46    |   -51536    |    0   ||
+|| S03  |  U-170-60-0-4.75  |  1.46    |   -57760    |    0   ||
+|| S04  |  U-170-60-0-4.75  |  1.46    |   -60205    |    0   ||
+|| S05  |  U-170-60-0-4.75  |  1.46    |   -58905    |    0   ||
+|| S06  |  U-170-60-0-4.75  |  1.46    |   -53856    |    0   ||
+|| S07  |  U-170-60-0-4.75  |  1.46    |   -45062    |    0   ||
+|| S08  |  U-170-60-0-4.75  |  1.46    |   -32515    |    0   ||
+|| S09  |  U-170-60-0-4.75  |  1.46    |   -16217    |    0   ||
+|| S10  |  U-170-60-0-4.75  |  1.46    |   0    |    3587   ||
+ 
+||Barra |      Perfil      | Long.[m] |Comp.M&aacute;x.[N]|Trac.M&aacute;x[N]||
+|| S11  |  U-170-60-0-4.75  |  1.20    |   -16623    |    0   ||
+|| S12  |  U-170-60-0-4.75  |  1.46    |   -42001    |    0   ||
+|| S13  |  U-170-60-0-4.75  |  1.46    |   -52017    |    0   ||
+|| S14  |  U-170-60-0-4.75  |  1.46    |   -58592    |    0   ||
+|| S15  |  U-170-60-0-4.75  |  1.46    |   -61390    |    0   ||
+|| S16  |  U-170-60-0-4.75  |  1.46    |   -60442    |    0   ||
+|| S17  |  U-170-60-0-4.75  |  1.46    |   -55746    |    0   ||
+|| S18  |  U-170-60-0-4.75  |  1.46    |   -47304    |    0   ||
+|| S19  |  U-170-60-0-4.75  |  1.46    |   -35110    |    0   ||
+|| S20  |  U-170-60-0-4.75  |  1.46    |   -19163    |    0   ||
+ 
+||Barra |      Perfil      | Long.[m] |Comp.M&aacute;x.[N]|Trac.M&aacute;x[N]||
+|| S21  |  U-170-60-0-4.75  |  1.46    |   -3078    |    0   ||
+|| S22  |  U-170-60-0-4.75  |  1.20    |   -20399    |    0   ||
+|| I23  |  U-170-60-0-4.75  |  1.04    |   -2335    |    0   ||
+|| I24  |  U-170-60-0-4.75  |  1.46    |   -4137    |    0   ||
+|| I25  |  U-170-60-0-4.75  |  1.46    |   -10260    |    0   ||
+|| I26  |  U-170-60-0-4.75  |  1.46    |   -13805    |    0   ||
+|| I27  |  U-170-60-0-4.75  |  1.46    |   -14822    |    0   ||
+|| I28  |  U-170-60-0-4.75  |  1.46    |   -13299    |    0   ||
+|| I29  |  U-170-60-0-4.75  |  1.46    |   -9238    |    0   ||
+|| I30  |  U-170-60-0-4.75  |  1.46    |   -2636    |    0   ||
+ 
+||Barra |      Perfil      | Long.[m] |Comp.M&aacute;x.[N]|Trac.M&aacute;x[N]||
+|| I31  |  U-170-60-0-4.75  |  1.46    |   -15506    |    0   ||
+|| I32  |  U-170-60-0-4.75  |  1.46    |   -34114    |    0   ||
+|| I33  |  U-170-60-0-4.75  |  1.46    |   -54927    |    0   ||
+|| I34  |  U-170-60-0-4.75  |  0.48    |   -48706    |    0   ||
+|| I35  |  U-170-60-0-4.75  |  1.46    |   -3785    |    0   ||
+|| I36  |  U-170-60-0-4.75  |  1.46    |   -9554    |    0   ||
+|| I37  |  U-170-60-0-4.75  |  1.46    |   -12748    |    0   ||
+|| I38  |  U-170-60-0-4.75  |  1.46    |   -13412    |    0   ||
+|| I39  |  U-170-60-0-4.75  |  1.46    |   -11537    |    0   ||
+|| I40  |  U-170-60-0-4.75  |  1.46    |   -7124    |    0   ||
+ 
+||Barra |      Perfil      | Long.[m] |Comp.M&aacute;x.[N]|Trac.M&aacute;x[N]||
+|| I41  |  U-170-60-0-4.75  |  1.46    |   -169    |    0   ||
+|| I42  |  U-170-60-0-4.75  |  1.46    |   -12690    |    0   ||
+|| I43  |  U-170-60-0-4.75  |  1.46    |   -30922    |    0   ||
+|| I44  |  U-170-60-0-4.75  |  1.46    |   -51535    |    0   ||
+|| I45  |  U-170-60-0-4.75  |  0.48    |   -47644    |    0   ||
+|| D46  |  C-160-60-15-2  |  1.16    |   -5281    |    0   ||
+|| D47  |  C-160-60-15-2  |  1.16    |   -4342    |    0   ||
+|| D48  |  C-160-60-15-2  |  1.16    |   -2418    |    0   ||
+|| D49  |  C-160-60-15-2  |  1.16    |   -469    |    0   ||
+|| D50  |  C-160-60-15-2  |  1.16    |   -2681    |    0   ||
+ 
+||Barra |      Perfil      | Long.[m] |Comp.M&aacute;x.[N]|Trac.M&aacute;x[N]||
+|| D51  |  C-160-60-15-2  |  1.16    |   -5565    |    0   ||
+|| D52  |  C-160-60-15-2  |  1.16    |   -8448    |    0   ||
+|| D53  |  C-160-60-15-2  |  1.16    |   -11324    |    0   ||
+|| D54  |  C-160-60-15-2  |  1.16    |   -14305    |    0   ||
+|| D55  |  C-160-60-15-2  |  1.16    |   -16309    |    0   ||
+|| D56  |  C-160-60-15-2  |  1.16    |   -25086    |    0   ||
+|| D57  |  C-160-60-15-2  |  0.80    |   -17609    |    0   ||
+|| D58  |  C-160-60-15-2  |  1.16    |   -8598    |    0   ||
+|| D59  |  C-160-60-15-2  |  1.16    |   -6226    |    0   ||
+|| D60  |  C-160-60-15-2  |  1.16    |   -3276    |    0   ||
+ 
+||Barra |      Perfil      | Long.[m] |Comp.M&aacute;x.[N]|Trac.M&aacute;x[N]||
+|| D61  |  C-160-60-15-2  |  1.16    |   -404    |    0   ||
+|| D62  |  C-160-60-15-2  |  1.16    |   -931    |    0   ||
+|| D63  |  C-160-60-15-2  |  1.16    |   -2884    |    0   ||
+|| D64  |  C-160-60-15-2  |  1.16    |   -4842    |    0   ||
+|| D65  |  C-160-60-15-2  |  1.16    |   -6769    |    0   ||
+|| D66  |  C-160-60-15-2  |  1.16    |   -8854    |    0   ||
+|| D67  |  C-160-60-15-2  |  1.16    |   -10311    |    0   ||
+|| D68  |  C-160-60-15-2  |  1.01    |   -30797    |    0   ||
+|| D69  |  C-160-60-15-2  |  1.16    |   -5024    |    0   ||
+|| D70  |  C-160-60-15-2  |  1.16    |   -4069    |    0   ||
+ 
+||Barra |      Perfil      | Long.[m] |Comp.M&aacute;x.[N]|Trac.M&aacute;x[N]||
+|| D71  |  C-160-60-15-2  |  1.16    |   -2147    |    0   ||
+|| D72  |  C-160-60-15-2  |  1.16    |   -198    |    0   ||
+|| D73  |  C-160-60-15-2  |  1.16    |   -2410    |    0   ||
+|| D74  |  C-160-60-15-2  |  1.16    |   -5293    |    0   ||
+|| D75  |  C-160-60-15-2  |  1.16    |   -8177    |    0   ||
+|| D76  |  C-160-60-15-2  |  1.16    |   -11053    |    0   ||
+|| D77  |  C-160-60-15-2  |  1.16    |   -14028    |    0   ||
+|| D78  |  C-160-60-15-2  |  1.16    |   -16101    |    0   ||
+|| D79  |  C-160-60-15-2  |  1.16    |   -24315    |    0   ||
+|| D80  |  C-160-60-15-2  |  0.80    |   -22017    |    0   ||
+ 
+||Barra |      Perfil      | Long.[m] |Comp.M&aacute;x.[N]|Trac.M&aacute;x[N]||
+|| D81  |  C-160-60-15-2  |  1.16    |   -8872    |    0   ||
+|| D82  |  C-160-60-15-2  |  1.16    |   -6496    |    0   ||
+|| D83  |  C-160-60-15-2  |  1.16    |   -3547    |    0   ||
+|| D84  |  C-160-60-15-2  |  1.16    |   -675    |    0   ||
+|| D85  |  C-160-60-15-2  |  1.16    |   -1202    |    0   ||
+|| D86  |  C-160-60-15-2  |  1.16    |   -3155    |    0   ||
+|| D87  |  C-160-60-15-2  |  1.16    |   -5113    |    0   ||
+|| D88  |  C-160-60-15-2  |  1.16    |   -7035    |    0   ||
+|| D89  |  C-160-60-15-2  |  1.16    |   -9151    |    0   ||
+|| D90  |  C-160-60-15-2  |  1.16    |   -10448    |    0   ||
+ 
+||Barra |      Perfil      | Long.[m] |Comp.M&aacute;x.[N]|Trac.M&aacute;x[N]||
+|| D91  |  C-160-60-15-2  |  1.01    |   -26473    |    0   ||
+|| C92  |  H21  |  3.50    |   -25838    |    0   ||
+|| C93  |  H21  |  3.50    |   -25610    |    0   ||
+||Barra |      Perfil      | Long.[m] |Comp.M&aacute;x.[N]|Trac.M&aacute;x[N]||
+</pre><p><i>Tabla 3: se detallan los elementos que conforman la cercha con los perfiles adoptados para cada caso. Tambi&eacute;n se detallan los m&aacute;ximos esfuerzos en cada cord&oacute;n, con los cuales ser&aacute;n verificados.</i></p><p>Nota: Los casos nulos en la tabla anterior corresponden a barras que no presentaron esfuerzos de tracci&oacute;n o compresi&oacute;n, seg&uacute;n corresponda.</p><p><b>8.- Dimensionamiento de la cercha</b></p><p><i><b>8.1.- Verificaci&oacute;n del cord&oacute;n superior.</b></i></p><p>Se procede a la verificaci&oacute;n del perfil adoptado seg&uacute;n los requerimientos establecidos por la norma CIRSOC 303-2009 para la resistencia a la compresi&oacute;n axil.</p><p><img vspace="5" hspace="5" src="perfilCS.png" alt=""> </p><p>Fig: Esquema del perfil adoptado para el cord&oacute;n superior.</p><p>Propiedades del perfil:</p><pre class="codeoutput">B = 60.0mm    t = 4.75mm
+R = 7.12mm    Ht = 170.00mm
+A = 13.03cm&sup2;
+Ixx = 532.08cm&#8308;  Iyy = 41.43cm&#8308;
+rx = 6.39cm    ry = 1.78cm
+Cw = 2037.51cm&#8310;  J = 0.98cm&#8308;
+x0 = -3.16cm    r0 = 7.35cm
+</pre><p>1) Verificaci&oacute;n de la relaci&oacute;n de esbeltez</p><p><b>Elemento 1 - Alma</b>:</p><pre class="codeoutput">h/t = 32   &lt;  500 B.C.
+</pre><p><b>Elemento 2 - Ala</b>:</p><pre class="codeoutput">d/t = 11   &lt;  60 B.C.
+</pre><p><b>Elemento 3 - Labio</b>:</p><pre class="codeoutput">No corresponde.
+</pre><p>2) Verificaci&oacute;n de la efectividad de la secci&oacute;n</p><p>En funci&oacute;n de los Arts. B.2.1, B.3.1 y B.4.2 se determina lo siguiente con respecto a la efectividad de la secci&oacute;n del perfil:</p><pre class="codeoutput">El &aacute;rea del perfil A = 13.03cm&sup2; es totalmente efectiva.
+</pre><p>3) Verificaci&oacute;n a la compresi&oacute;n:</p><p>&#8226; Articulo C.4: Este art&iacute;culo se aplica a barras en las cuales la resultante de todas las cargas actuantes es una carga axial a lo largo del eje del baricentro de la secci&oacute;n efectiva calculada para la tensi&oacute;n Fn (MPa).</p><pre class="codeoutput">Pd = &Oslash;c&middot;Fn&middot;Ae&middot;0.1 = 0.85&middot;188&middot;13.03&middot;0.1 = 207.73kN &gt; 61.39kN  B.C.
+</pre><p>4) Verificaci&oacute;n a la tracci&oacute;n:</p><p>Seg&uacute;n el art&iacute;culo C.2, para barras solicitadas a tracci&oacute;n, la resistencia nominal a tracci&oacute;n, <b>Td</b>, en kN deber&aacute; ser el menor valor obtenido de los estados l&iacute;mites de (a) fluencia en la secci&oacute;n bruta, (b) rotura en la secci&oacute;n neta fuera de las uniones y (c) rotura en la secci&oacute;n neta efectiva en la uni&oacute;n.</p><p>En el presente an&aacute;lisis se analiza los primeros dos casos, dejando a lo &uacute;ltimo las verificaciones de las uniones. Al no presentar uniones por bulones, la secci&oacute;n bruta es igual a la secci&oacute;n neta efectiva.</p><pre>(a) Fluencia en la secci&oacute;n bruta (Art. C.2-1)</pre><pre class="codeoutput">Td = &Oslash;t&middot;Ag&middot;Fy&middot;0.1 = 0.9&middot;235&middot;13.03&middot;0.1 = 275.65kN &gt; 41.03kN  B.C.
+</pre><pre>(b) Rotura en la secci&oacute;n neta (Art. C.2-2)</pre><pre class="codeoutput">Td = &Oslash;t&middot;An&middot;Fu&middot;0.1 = 0.75&middot;13.03&middot;310.00&middot;0.1 = 303.02kN &gt; 41.03kN  B.C.
+</pre><p><i><b>8.2.- Verificaci&oacute;n del cord&oacute;n inferior.</b></i></p><p>Se procede a la verificaci&oacute;n del perfil adoptado seg&uacute;n los requerimientos establecidos por la norma CIRSOC 303-2009 para la resistencia a la compresi&oacute;n axil.</p><p><img vspace="5" hspace="5" src="perfilCI.png" alt=""> </p><p>Fig: Esquema del perfil adoptado para cord&oacute;n inferior.</p><p>Propiedades del perfil:</p><pre class="codeoutput">B = 60.0mm    t = 4.75mm
+R = 7.12mm    Ht = 170.00mm
+A = 13.03cm&sup2;
+Ixx = 532.08cm&#8308;  Iyy = 41.43cm&#8308;
+rx = 6.39cm    ry = 1.78cm
+Cw = 2037.51cm&#8310;  J = 0.98cm&#8308;
+x0 = -3.16cm    r0 = 7.35cm
+</pre><p>1) Verificaci&oacute;n de la relaci&oacute;n de esbeltez</p><p><b>Elemento 1 - Alma</b>:</p><pre class="codeoutput">h/t = 32   &lt;  500 B.C.
+</pre><p><b>Elemento 2 - Ala</b>:</p><pre class="codeoutput">d/t = 11   &lt;  60 B.C.
+</pre><p><b>Elemento 3 - Labio</b>:</p><pre class="codeoutput">No corresponde.
+</pre><p>2) Verificaci&oacute;n de la efectividad de la secci&oacute;n</p><p>En funci&oacute;n de los Arts. B.2.1, B.3.1 y B.4.2 se determina lo siguiente con respecto a la efectividad de la secci&oacute;n del perfil:</p><pre class="codeoutput">El &aacute;rea del perfil A = 13.03cm&sup2; es totalmente efectiva.
+</pre><p>3) Verificaci&oacute;n a la compresi&oacute;n:</p><p>&#8226; Articulo C.4: Este art&iacute;culo se aplica a barras en las cuales la resultante de todas las cargas actuantes es una carga axial a lo largo del eje del baricentro de la secci&oacute;n efectiva calculada para la tensi&oacute;n Fn (MPa).</p><pre class="codeoutput">Pd = &Oslash;c&middot;Fn&middot;Ae&middot;0.1 = 0.85&middot;188&middot;13.03&middot;0.1 = 207.73kN &gt; 54.93kN  B.C.
+</pre><p>4) Verificaci&oacute;n a la tracci&oacute;n:</p><p>Seg&uacute;n el art&iacute;culo C.2, para barras solicitadas a tracci&oacute;n, la resistencia nominal a tracci&oacute;n, <b>Td</b>, en kN deber&aacute; ser el menor valor obtenido de los estados l&iacute;mites de (a) fluencia en la secci&oacute;n bruta, (b) rotura en la secci&oacute;n neta fuera de las uniones y (c) rotura en la secci&oacute;n neta efectiva en la uni&oacute;n.</p><p>En el presente an&aacute;lisis se analiza los primeros dos casos, dejando a lo &uacute;ltimo las verificaciones de las uniones. Al no presentar uniones por bulones, la secci&oacute;n bruta es igual a la secci&oacute;n neta efectiva.</p><pre>(a) Fluencia en la secci&oacute;n bruta (Art. C.2-1)</pre><pre class="codeoutput">Td = &Oslash;t&middot;Ag&middot;Fy&middot;0.1 = 0.9&middot;13&middot;235.00&middot;0.1 = 275.65kN &gt; 35.12kN  B.C.
+</pre><pre>(b) Rotura en la secci&oacute;n neta (Art. C.2-2)</pre><pre class="codeoutput">Td = &Oslash;t&middot;An&middot;Fu&middot;0.1 = 0.75&middot;13.03&middot;310.00&middot;0.1 = 303.02kN &gt; 35.12kN  B.C.
+</pre><p><i><b>8.3.- Verificaci&oacute;n de las diagonales.</b></i></p><p>Se procede a la verificaci&oacute;n del perfil adoptado seg&uacute;n los requerimientos establecidos por la norma CIRSOC 303-2009 para la resistencia a la compresi&oacute;n axil.</p><p><img vspace="5" hspace="5" src="perfilDI.png" alt=""> </p><p>Fig: Esquema del perfil adoptado para las diagonales.</p><p>Propiedades del perfil:</p><pre class="codeoutput">B = 60.0mm    t = 2.00mm
+R = 3.00mm    Ht = 160.00mm
+A = 5.94cm&sup2;
+Ixx = 233.19cm&#8308;  Iyy = 27.31cm&#8308;
+rx = 6.27cm    ry = 2.14cm
+Cw = 1413.48cm&#8310;  J = 0.08cm&#8308;
+x0 = -4.22cm    r0 = 7.85cm
+</pre><p>1) Verificaci&oacute;n de la relaci&oacute;n de esbeltez</p><p><b>Elemento 1 - Alma</b>:</p><pre class="codeoutput">h/t = 76   &lt;  500 B.C.
+</pre><p><b>Elemento 2 - Ala</b>:</p><pre class="codeoutput">d/t = 26   &lt;  60 B.C.
+</pre><p><b>Elemento 3 - Labio</b>:</p><pre class="codeoutput">b1/t = 5.50   &lt;  60 B.C.
+</pre><p>2) Verificaci&oacute;n de la efectividad de la secci&oacute;n</p><p>En funci&oacute;n de los Arts. B.2.1, B.3.1 y B.4.2 se determina lo siguiente con respecto a la efectividad de la secci&oacute;n del perfil:</p><pre class="codeoutput">El &aacute;rea del perfil A = 5.94cm&sup2; es totalmente efectiva.
+</pre><p>3) Verificaci&oacute;n a la compresi&oacute;n:</p><p>&#8226; Articulo C.4: Este art&iacute;culo se aplica a barras en las cuales la resultante de todas las cargas actuantes es una carga axial a lo largo del eje del baricentro de la secci&oacute;n efectiva calculada para la tensi&oacute;n Fn (MPa).</p><pre class="codeoutput">Pd = &Oslash;c&middot;Fn&middot;Ae&middot;0.1 = 0.85&middot;195&middot;4.90&middot;0.1 = 81.32kN &gt; 16.31kN  B.C.
+</pre><p>4) Verificaci&oacute;n a la tracci&oacute;n:</p><p>Seg&uacute;n el art&iacute;culo C.2, para barras solicitadas a tracci&oacute;n, la resistencia nominal a tracci&oacute;n, <b>Td</b>, en kN deber&aacute; ser el menor valor obtenido de los estados l&iacute;mites de (a) fluencia en la secci&oacute;n bruta, (b) rotura en la secci&oacute;n neta fuera de las uniones y (c) rotura en la secci&oacute;n neta efectiva en la uni&oacute;n.</p><p>En el presente an&aacute;lisis se analiza los primeros dos casos, dejando a lo &uacute;ltimo las verificaciones de las uniones. Al no presentar uniones por bulones, la secci&oacute;n bruta es igual a la secci&oacute;n neta efectiva.</p><pre>(a) Fluencia en la secci&oacute;n bruta (Art. C.2-1)</pre><pre class="codeoutput">Td = &Oslash;t&middot;Ag&middot;Fy&middot;0.1 = 0.9&middot;6&middot;235.00&middot;0.1 = 125.57kN &gt; 16.19kN  B.C.
+</pre><pre>(b) Rotura en la secci&oacute;n neta (Art. C.2-2)</pre><pre class="codeoutput">Td = &Oslash;t&middot;An&middot;Fu&middot;0.1 = 0.75&middot;5.94&middot;310.00&middot;0.1 = 138.04kN &gt; 16.19kN  B.C.
+</pre><p><i><b>8.4.- Verificaci&oacute;n de las barras de apoyos de la cercha.</b></i></p><p>Se procede a la verificaci&oacute;n del perfil adoptado seg&uacute;n los requerimientos establecidos por la norma CIRSOC 303-2009 para la resistencia a la compresi&oacute;n axil.</p><p><img vspace="5" hspace="5" src="perfilDA.png" alt=""> </p><p>Fig: Esquema del perfil adoptado para barras de apoyo de la cercha.</p><p>Propiedades del perfil:</p><pre class="codeoutput">B = 60.0mm    t = 2.00mm
+R = 3.00mm    Ht = 160.00mm
+A = 5.94cm&sup2;
+Ixx = 233.19cm&#8308;  Iyy = 27.31cm&#8308;
+rx = 6.27cm    ry = 2.14cm
+Cw = 1413.48cm&#8310;  J = 0.08cm&#8308;
+x0 = -4.22cm    r0 = 7.85cm
+</pre><p>1) Verificaci&oacute;n de la relaci&oacute;n de esbeltez</p><p><b>Elemento 1 - Alma</b>:</p><pre class="codeoutput">h/t = 76   &lt;  500 B.C.
+</pre><p><b>Elemento 2 - Ala</b>:</p><pre class="codeoutput">d/t = 26   &lt;  60 B.C.
+</pre><p><b>Elemento 3 - Labio</b>:</p><pre class="codeoutput">b1/t = 5.50   &lt;  60 B.C.
+</pre><p>2) Verificaci&oacute;n de la efectividad de la secci&oacute;n</p><p>En funci&oacute;n de los Arts. B.2.1, B.3.1 y B.4.2 se determina lo siguiente con respecto a la efectividad de la secci&oacute;n del perfil:</p><pre class="codeoutput">El &aacute;rea del perfil A = 5.94cm&sup2; es totalmente efectiva.
+</pre><p>3) Verificaci&oacute;n a la compresi&oacute;n:</p><p>&#8226; Articulo C.4: Este art&iacute;culo se aplica a barras en las cuales la resultante de todas las cargas actuantes es una carga axial a lo largo del eje del baricentro de la secci&oacute;n efectiva calculada para la tensi&oacute;n Fn (MPa).</p><pre class="codeoutput">Pd = &Oslash;c&middot;Fn&middot;Ae&middot;0.1 = 0.85&middot;195&middot;4.90&middot;0.1 = 81.32kN &gt; 30.80kN  B.C.
+</pre><p>4) Verificaci&oacute;n a la tracci&oacute;n:</p><p>Seg&uacute;n el art&iacute;culo C.2, para barras solicitadas a tracci&oacute;n, la resistencia nominal a tracci&oacute;n, <b>Td</b>, en kN deber&aacute; ser el menor valor obtenido de los estados l&iacute;mites de (a) fluencia en la secci&oacute;n bruta, (b) rotura en la secci&oacute;n neta fuera de las uniones y (c) rotura en la secci&oacute;n neta efectiva en la uni&oacute;n.</p><p>En el presente an&aacute;lisis se analiza los primeros dos casos, dejando a lo &uacute;ltimo las verificaciones de las uniones. Al no presentar uniones por bulones, la secci&oacute;n bruta es igual a la secci&oacute;n neta efectiva.</p><pre>(a) Fluencia en la secci&oacute;n bruta (Art. C.2-1)</pre><pre class="codeoutput">Td = &Oslash;t&middot;Ag&middot;Fy&middot;0.1 = 0.9&middot;6&middot;235.00&middot;0.1 = 125.57kN &gt; 31.29kN  B.C.
+</pre><pre>(b) Rotura en la secci&oacute;n neta (Art. C.2-2)</pre><pre class="codeoutput">Td = &Oslash;t&middot;An&middot;Fu&middot;0.1 = 0.75&middot;5.94&middot;310.00&middot;0.1 = 138.04kN &gt; 31.29kN  B.C.
+</pre><p><b>9.- Dimensionamiento de las columnas.</b></p><p>Seg&uacute;n el art&iacute;culo 10.8 del CIRSOC el lado m&iacute;nimo de una columna debe ser mayor a 200mm y el di&aacute;metro de las barras no menor a 12mm.</p><p><i><b>9.1.- Predimensionamiento.</b></i></p><p>Dimensiones de la columna:</p><pre class="codeoutput">Lado menor: bc = 24cm
+Lado mayor: ac = 48cm
+Ag = 48cm&middot;24cm = 1152cm&sup2;</pre><p>Adem&aacute;s, se considera un recubrimiento de 3cm.</p><p><i>Armadura adoptada</i>: El acero es de tipo 420.</p><pre class="codeoutput">Armadura principal por cara: Ast = 5&Oslash;16 = 10.05cm&sup2;
+Armadura de corte: Ae = 1 &Oslash;6c/10cm
+</pre><p><i><b>9.2.- Verificaciones.</b></i></p><p>La armadura m&iacute;nima es:</p><pre class="codeoutput">MALAS CONDICIONES: Se debe redimensionar la armadura a flexi&oacute;n, ya que no cumple con la cuant&iacute;a m&iacute;nima.?</pre><p>La armadura m&iacute;nima por retracci&oacute;n y frag&uuml;e:</p><pre class="codeoutput">Asm&iacute;n = 0.0018&middot;bc&middot;ac = 0.0018&middot;24cm&middot;48 = 2.07cm&sup2; &lt; Ast = 10.05cm&sup2;   B.C.</pre><p>La armadura por flexi&oacute;n:</p><pre class="codeoutput">Warning: *** La armadura de flexi&oacute;n adoptada NO
+VERIFICA. Se recomienda redimensionar. 
+    La armadura de corte adoptada verifica 
+</pre><p>Para la determinaci&oacute;n de la armadura de flexi&oacute;n:</p><pre class="codeoutput">kh = 6.98, por lo tanto:  ks = 0.48. 
+MALAS CONDICIONES: Se debe redimensionar la armadura de flexi&oacute;n. ?
+</pre><p>La armadura por corte:</p><pre class="codeoutput">Tau = 4.27kg/cm&sup2;; por lo tanto:  Zona de Corte: 1; y la Tensi&oacute;n de Corte: 1.71kg/cm&sup2; 
+TensCorte = 1.71kg/cm&sup2; &lt; Ase = 5.65kg/cm&sup2; B.C.
+</pre><p><b>10.- Determinaci&oacute;n del momento estabilizador de la fundaci&oacute;n por el m&eacute;todo de SULZBERGER</b></p><p>El m&eacute;todo se basa en un postulado que establece que para inclinaciones l&iacute;mites del conjunto soporte (fundaci&oacute;n) en un &aacute;ngulo &#8220;&#945;&#8221; respecto de la vertical, tal que &#8220;tg(&#945;)&#8804;0,01&#8221;, el terreno se comportar&aacute; de forma el&aacute;stica. De esta forma se obtiene adem&aacute;s de una reacci&oacute;n en el fondo de la fundaci&oacute;n, una reacci&oacute;n de las paredes verticales, ambas definir&aacute;n un momento estabilizador que se opondr&aacute; al momento de vuelco provocado por las cargas exteriores. Por esta raz&oacute;n, se adopta una inclinaci&oacute;n del conjunto fundaci&oacute;n-soporte tal que tg(&#945;)=0,01, pretendiendo aprovechar al m&aacute;ximo el comportamiento el&aacute;stico del suelo.</p><p><i><b>10.1.- Caracter&iacute;sticas del suelo.</b></i></p><pre class="codeoutput">&#963;adm = 110kN/m&sup2; (1.1kg/cm&sup2;) ?
+</pre><pre class="codeoutput">C = 100000kN/m&sup3; (10kg/cm&sup3;)
+</pre><pre>Coeficiente de fricci&oacute;n entre el terreno y el hormig&oacute;n:</pre><pre class="codeoutput">&#956; = 0.4
+</pre><p>Tangente del &aacute;ngulo de giro <b>&#945;</b> permitido de la base:</p><pre class="codeoutput">tg(&#945;) = 0.01
+</pre><p>M&iacute;nima relaci&oacute;n entre los momentos dados por Sulzberguer y el momento de volcamiento:</p><pre class="codeoutput">Gamma = 1.50
+</pre><p><i><b>10.2.- Caracter&iacute;sticas de los elementos estructurales.</b></i></p><p>Profundidad de fundaci&oacute;n:</p><pre class="codeoutput">H = 1.80m
+</pre><p>Altura de la base de hormig&oacute;n:</p><pre class="codeoutput">t = 1.80m
+</pre><p>Lados de la base de hormig&oacute;n, normal y paralelo a la cumbrera, respectivamente:</p><pre class="codeoutput">af = 0.90m;    bf = 0.90m</pre><p><i><b>10.3.- Determinaci&oacute;n del momento estabilizante.</b></i></p><p>El momento estabilizante <b>Me</b> producido por la fundaci&oacute;n est&aacute; conformado por dos momentos:</p><div><ol><li>Momento de empotramiento <b>Ms</b> debido a las reacciones de las paredes verticales de la fundaci&oacute;n y a la fricci&oacute;n entre el suelo y el hormig&oacute;n.</li><li>Momento de reacci&oacute;n de fondo <b>Mb</b> debido a la reacci&oacute;n de fondo de la fundaci&oacute;n, provocado por las cargas verticales actuantes.</li></ol></div><p><i><b>C&aacute;lculo de Ms:</b></i> El m&eacute;todo de Sulzberger acepta que la profundidad de entrada del bloque dentro del terreno depende de la resistencia espec&iacute;fica o &#8220;presi&oacute;n admisible del suelo&#8221; contra la presi&oacute;n externa en el lugar considerado. Esta presi&oacute;n es igual a la profundidad multiplicada por el &iacute;ndice de compresibilidad <b>C</b>.</p><p><b>&#963; = C.&#955;</b></p><p>Donde <b>&#955;</b> es la deformaci&oacute;n del suelo producida por la fuerza externa y <b>C</b> esta expresado en kN/m&sup3;.</p><p><img vspace="5" hspace="5" src="Fig_Sulz01.png" alt=""> </p><p>Considerando que la fricci&oacute;n en el fondo de la excavaci&oacute;n act&uacute;a en su valor total, el eje de giro del bloque se ubica en la base del mismo. Una inclinaci&oacute;n con &aacute;ngulo &#945; corresponde a un movimiento transversal de la superficie &#8220;bf.dy&#8221; igual a &#8220;y.tg(&#945;)&#8221;, donde &#8220;bf&#8221; es la dimensi&oacute;n del bloque normal a la fuerza F, mientras que &#8220;y&#8221; es la distancia entre la superficie mencionada y la base del bloque. Siendo Cy el &iacute;ndice de compresibilidad del terreno en la profundidad considerada, la presi&oacute;n unitaria ser&aacute; igual a:</p><p><b>&#963;y = Cy&middot;y&middot;tg(&#945;)</b></p><p>Expresi&oacute;n similar a la escrita anteriormente. La fuerza de reacci&oacute;n de la pared de excavaci&oacute;n ser&aacute;:</p><p><b>dFy =Cy&middot;y&middot;tg(&#945;)&middot;b&middot;dy</b></p><p>El momento respecto al eje de giro en la base ser&aacute;:</p><p><b>dMs = Cy&middot;b&middot;dy&middot;y&sup2;&middot;tg(&#945;)</b></p><p><img vspace="5" hspace="5" src="Fig_Sulz02.png" alt=""> </p><p>Donde &#8220;Cy&middot;b&middot;dy&middot;y&sup2;&#8221; representa el momento de inercia de la superficie de carga &#8220;Cy&middot;b&middot;dy&#8221; con respecto al eje de giro. Entonces se puede escribir como:</p><p><b>dMs = dI&middot;tg(&#945;)</b></p><p>El &iacute;ndice C es una funci&oacute;n lineal de la profundidad, por lo que se puede decir que la superficie total de carga tiene la forma de un tri&aacute;ngulo is&oacute;sceles con la base igual a &#8220;Ct&middot;b&#8221; y una altura &#8220;t&#8221;. Designado el valor de &#8220;C&#8221; en la profundidad &#8220;t&#8221; por &#8220;Ct&#8221; se puede establecer:</p><p><b>Cy = Ct &middot; (1 - y/t)</b></p><p>Entonces: <b>dI = Ct&middot;(1 - y/t)&middot;b&middot;y&sup2;&middot;dy</b></p><p>Por lo tanto: <b>I = (Ct&middot;b&middot;t&sup3;) / 12</b></p><p>Siendo el momento de empotramiento:</p><p><b>Ms = (1/12)&middot;(bf&middot;t&sup3;)&middot;Ct&middot;tg(&#945;)</b></p><p><b>Momento de empotramiento considerando el centro de giro actuando en la base, cuando es inminente el desplazamiento de la base en el fondo.</b></p><p>Una vez excedida la capacidad friccional del fondo el eje empieza a levantarse de su posici&oacute;n en el fondo de la excavaci&oacute;n por lo que para determinar el &aacute;ngulo &#945; que corresponde al momento se procede de la siguiente forma. La presi&oacute;n unitaria en la profundidad &#8220;t-y&#8221; es igual a:</p><p><b>&#963;y = Cy&middot;&#955;y</b>       pero con       <b>&#955;y = y&middot;tg(&#945;)</b></p><p>Siendo:   <b>Cy = Ct&middot;(1 - y/t)</b>      &#8594;     <b>&#963;y = Ct&middot;(1-y/t)&middot;y&middot;tg(&#945;)</b></p><p>Por lo que <b>&#963;y</b> representa una funci&oacute;n parab&oacute;lica sim&eacute;trica en relaci&oacute;n con la recta <b>y = t/2</b> (Ver figura).</p><p>Designando con <b>R = &micro;.G</b> la resultante de las fuerzas de resistencia de la pared considerada, se puede escribir como:</p><p><b>Ms = &#956;&middot;G&middot;t/2</b></p><p><img vspace="5" hspace="5" src="Fig_Sulz03.png" alt=""> </p><p>Siendo <b>G</b> la resultante de las cargas verticales y <b>&#956;</b> el coeficiente de fricci&oacute;n est&aacute;tica entre la tierra y el hormig&oacute;n al fondo de excavaci&oacute;n. Se considera que el eje de giro empieza a levantarse y el &aacute;ngulo que corresponde a este momento se puede calcular de la siguiente forma:</p><p><b>&#956;&middot;G&middot;t/2 = (1/12)&middot;b&middot;t&sup3;&middot;Ct&middot;tg(&#945;)</b></p><p>siendo</p><p><b>tg(&#945;) =  (6&middot;&#956;&middot;G) / (b&middot;Ct&middot;t&sup2;)</b></p><p>Con el aumento del &aacute;ngulo &#945; disminuye la fricci&oacute;n hasta desaparecer. Por lo tanto, se desprecia la fricci&oacute;n de fondo y se obtiene una situaci&oacute;n en la que el eje de giro se encuentra en el centro de gravedad de la superficie de carga a una distancia igual a 1/3 de la profundidad <b>t</b>. Por lo que el momento de inercia del tri&aacute;ngulo con respecto al eje que pasa por su baricentro es:</p><p><b>I=(1/36)&middot;bf&middot;t&sup3;&middot;Ct</b>    por lo tanto     <b>Ms = (1/36)&middot;bf&middot;t&sup3;&middot;Ct&middot;tg(&#945;)</b></p><p>Entonces el momento de empotramiento para el bloque de fundaci&oacute;n con las caracter&iacute;sticas mencionadas anteriormente considerando que el eje se levanta de su posici&oacute;n en el fondo, ser&aacute;:</p><pre class="codeoutput">Ms = bf&middot;t&sup3;/36&middot;Ct&middot;tg(&#945;) = 128.68kNm</pre><p><i><b>C&aacute;lculo de Mb:</b></i> Las cargas verticales hacen que el bloque se introduzca en el terreno hasta una profundidad igual a:</p><p><b>&#955;0 = G/(af&middot;bf&middot;Cb)</b>  (cm)</p><p>Donde: <b>G</b>: Es la resultante de las cargas verticales. <b>af&middot;bf</b>: Son las dimensiones de la base rectangular. <b>Cb</b>: &Iacute;ndice de compresibilidad en el fondo.</p><p>Bajo la acci&oacute;n del momento exterior de volcamiento aplicado en la estructura, el bloque de fundaci&oacute;n se inclina un &aacute;ngulo &#8220;&#945;&#8221; levant&aacute;ndose en un extremo y baj&aacute;ndose en el opuesto.</p><p>La resultante de las fuerzas de reacci&oacute;n de fondo es igual a G. Donde G es la suma de las acciones verticales de la superestructura m&aacute;s el peso propio de la fundaci&oacute;n m&aacute;s el peso del talud de suelo gravante. Con aumento del &aacute;ngulo &#8220;&#945;&#8221; se acorta el prisma de tensiones generado por la resultante G. Por lo que el centro de giro debe encontrarse por encima del centro de gravedad del prisma, siendo para condiciones de equilibrio cuando la base del bloque toca el fondo de excavaci&oacute;n en su superficie total, se puede establecer lo siguiente:</p><p><b>Mb = G&middot;s</b>           siendo      <b>s =  af/2 - c</b></p><p>Con   <b>c = (af/3)&middot;[(&#955;0+&#955;')+2&middot;(&#955;0-&#955;')] / [(&#955;0+&#955;')+(&#955;0-&#955;')] = af&middot;[0,5 - &#955;'/(6&middot;&#955;0)]</b></p><p><b>&#955;' = af/2&middot;tg(&#945;)</b>;      <b>&#955;0 = G / (af&middot;bf&middot;Cb)</b></p><p>&#8594;     <b>s = (af&sup3;&middot;bf&middot;Cb)/(12&middot;G)&middot;tg(&#945;)</b></p><p>&#8756;  <b>Mb =  (1/12)&middot;bf&middot;af&sup3;&middot;Cb&middot;tg(&#945;)</b></p><p><img vspace="5" hspace="5" src="Fig_Sulz04.png" alt=""> </p><p>La posici&oacute;n externa se caracteriza por un &aacute;ngulo <b>&#945;</b> obtenido de la siguiente forma:</p><p><b>af&middot;tg(&#945;) = 2&middot;&#955;0</b>   &#8756;  <b>tg(&#945;) = (2&middot;G)/(af&middot;bf&middot;Cb)</b></p><p>En condiciones en que la base se levante hasta el punto en que no toque el fondo, se puede calcular el momento de la siguiente forma:</p><p><b>Mb = G&middot;s = G&middot;(af/2 - x/3)</b></p><p>Siendo el volumen del prisma de tensiones igual a:</p><p><b>G = &#963;&middot;bf&middot;x/2</b></p><p>Donde <b>&#963;</b> es la tensi&oacute;n m&aacute;xima del terreno al fondo de la excavaci&oacute;n:</p><p><b>&#963; = Cb&middot;(&#955;0 + &#955;') = Cb&middot;x&middot;tg(&#945;)</b> &#8756; <b>G = 1/2&middot;x&sup2;&middot;bf&middot;Cb&middot;tg(&#945;)</b></p><p>Siendo:    <b>x = [(2&middot;G)/(bf&middot;Cb&middot;tg(&#945;))]</b></p><p>Por lo tanto, sustituyendo dichos valores en la ecuaci&oacute;n del momento <b>Mb</b>, se tiene:</p><pre class="codeoutput">Mb = G&middot;[af/2-0.471&middot;( G / sqrt(bf&middot;Cb&middot;tg&#945;))]</pre><p>Se procede al c&aacute;lculo del momento de fondo considerando que la base se levanta hasta no tocar dicha superficie, se tiene:</p><p><b>G = Gc + Gb</b></p><p><b>Gc = &#947;h&middot;(ac.bc.h)</b></p><p><b>Gb = &#947;h&middot;(af.bf.t)</b></p><p>Siendo <b>Cb = 1,2.Ct</b>. Por lo tanto se tiene:</p><pre class="codeoutput">Mb = G&middot;[af/2-0.471&middot;sqrt(G/(bf&middot;Cb&middot;tg&#945;))] = 22.81kNm</pre><p>Y el momento estabilizador ser&aacute;:</p><pre class="codeoutput">Me = Ms + Mb = 128.68kNm + 22.81kNm = 151.50kNm</pre><p>Por otro lado, el momento de volcamiento se determina de la siguiente manera:</p><pre class="codeoutput">Mv = MaxFzaH&middot;(H + 2/3&middot;t) + M = 52.69kNm
+Me = 151.50kNm &gt; 79.04kNm = gamma&middot;Mv    B.C.
+</pre><p><i><b>10.4.- Verificaci&oacute;n al arrancamiento.</b></i></p><p>La resultante de cargas verticales <b>G</b> debe cumplir:</p><pre class="codeoutput">G = 70.89kN &gt; 504.13kN B.C. para la verificaci&oacute;n al arrancamiento.
+</pre><p><i><b>10.5.- Verificaci&oacute;n de tensi&oacute;n m&aacute;xima del suelo.</b></i></p><p>Las cargas gravitatorias m&aacute;ximas son:</p><pre class="codeoutput">FVertM&aacute;x = 3.80kN</pre><p>Por lo tanto, la relaci&oacute;n entre tensi&oacute;n de trabajo y tensi&oacute;n admisible del suelo es:</p><pre class="codeoutput">&#963;adm/&#963;trb = 110kN/m&sup2;/5kN/m&sup2; = 23 ? &gt; 1    B.C.
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function informeCubAis(Prob_data,Design) 
+% RellenosParaInforme
+global model
+%% *Memoria de cálculo: Estructura de techo*
+fprintf(' %s \n',Prob_data.Info.title) ;
+fprintf('\n   \n') ;
+fprintf(' FECHA: %s \n',Prob_data.Info.date) ;
+fprintf(' CALCULISTA: %s \n',Prob_data.Info.calc) ;
+fprintf(' SOLICITANTE: %s \n',Prob_data.Info.solic) ;
+fprintf('\n   ') ;
+
+%%
+% *1.- Consideraciones generales*
+%
+% En la presente memoria de cálculo se emplearán los siguientes lineamientos:
+% 
+% * Para la determinación de las cargas de viento, se emplearán el Reglamento argentino de acción del viento sobre las construcciones CIRSOC 102 (edición de Julio 2005) y los Comentarios al reglamento argentino de acción del viento sobre las construcciones CIRSOC 102 (edición de Julio 2005).
+%
+% * Con respecto a la verificación de la estructura principal y secundaria, de chapa plegada, tanto como correas y vigas cajón, el procedimiento de cálculo será basado por la recomendación al CIRSOC 302 (Edición de Noviembre de 2001).
+%
+% * Para el dimensionamiento de los elementos de hormigón armado será empleado el reglamento CIRSOC 201.
+
+%%
+% *2.- Datos generales de la estructura*
+%
+% Se adjunta al presente informe la planta de estructura.
+fprintf('Lado Mayor L: %1.2fm.\n',Prob_data.Geom.Lt);
+fprintf('Lado Menor B: %1.2fm.\n',Prob_data.Geom.L);
+fprintf('Altura de cabeza de columna h: %1.2fm.\n',Prob_data.Geom.Hc);
+fprintf('Pendiente: %1.2fº \n',atand(Prob_data.Geom.pend(1)));
+fprintf('Ubicación: %s. \n',Prob_data.Rell.Info.Ubic);
+fprintf('Destino: %s. \n',Prob_data.Rell.Info.Dest);
+
+%% 
+% *3.- Determinación de las cargas de viento*
+%
+% _*3.1.- Determinación de la Presión Dinámica (CIRSOC 102-2005, Art.
+% 5.10)*_
+%
+% *q = 0.613 · kz · kzt · kd · I · v²*
+%
+% Características de la estructura según reglamento:
+fprintf('Exposición: %s. \n', Prob_data.Cargas.Exp) ;
+fprintf('Factor topográfico: Kzt = %1.2f. \n',Prob_data.Cargas.Kzt) ;
+fprintf('Factor de direccionalidad. Kd = %1.2f. \n',Prob_data.Cargas.Kd) ;
+fprintf('Factor de Importancia: I = %1.0f. \n',Prob_data.Cargas.I) ;
+fprintf('Velocidad básica de viento: v = %1.2f [m/s].  \n',Prob_data.Cargas.V) ;
+fprintf(['Tipo de edificio: ' Prob_data.Cargas.Carac '\n'])
+fprintf('Relación de bloqueo ζ = %1.2f \n', Prob_data.Cargas.Epsilon)
+if Prob_data.Cargas.PosBloqueo==0
+   AuxStr = 'alero mas bajo.';
+else
+   AuxStr = 'alero mas alto.';
+end
+if model == 5
+   fprintf(['Posición de bloqueo: ' AuxStr ' \n'])
+end
+fprintf('Coeficiente de exposición para la presión dinámica en función de la altura de la estructura (Art. 5.6.4.):  \n');
+%%
+% 
+fprintf('|| Z[m] |  Kz  | q[N/m²]|| \n');
+for i=1:size(Prob_data.Cargas.ZKzqz,1)
+    fprintf('|| %1.2f | %1.2f | %1.2f || \n',[Prob_data.Cargas.ZKzqz(i,1),Prob_data.Cargas.ZKzqz(i,2),Prob_data.Cargas.ZKzqz(i,3)]);
+end
+%%
+% _Tabla 1: Factores Kz y presión qz._
+%%
+% Donde la última fila corresponde a la altura media de la cubierta, la cual definirá la presión *qh*.
+%%
+% _*3.2.- Determinación de las presiones de diseño.*_
+%
+% Su determinación para cubiertas aisladas está definida por el Anexo I del
+% reglamento el cual establece la siguiente expresión:
+%
+% *p = qh · G · Cpn [N/m2]*
+%
+% *qh* presión dinámica evaluada a la altura media de cubierta, h ;
+%
+% *G* el factor de efecto de ráfaga según el artículo 5.8.;
+%
+% *Cpn* el coeficiente de presión neta, Tablas I.1, I.2 e I.3;
+%
+
+fprintf('Presión dinámica para la altura media qh = %1.2f \n', Prob_data.Cargas.ZKzqz(end,3)) ;
+fprintf('Factor de efecto ráfaga G = %1.2f \n', 0.85) ;
+
+fprintf('||   Caso de   |     Coeficientes  || \n');
+fprintf('||       Carga |     Globales  || \n');
+fprintf('||   Máx. p/todo ζ    |       %1.2f     || \n', Prob_data.Cargas.m_Cpn(1));
+fprintf('||   Mín. p/ζ=%1.2f   |       %1.2f    || \n',[Prob_data.Cargas.Epsilon Prob_data.Cargas.m_Cpn(2)]);
+%%
+% Tabla 2: Coeficientes Cpn.
+
+fprintf('||   Caso de   |     Presiones  || \n');
+fprintf('||       Carga |     Globales [N/m²] || \n');
+fprintf('||   Máx. p/todo ζ    |       %1.2f     || \n', Prob_data.Cargas.p_v(1,1));
+fprintf('||   Mín. p/ζ=%1.2f   |       %1.2f    || \n',[Prob_data.Cargas.Epsilon Prob_data.Cargas.p_v(3,1)]);
+%%
+% Tabla 3: Presiones resultantes.
+
+%%
+% *4.- Análisis de cargas*
+%
+% De acuerdo con el artículo A.4.3 del CIRSOC 303-2009 la resistencia requerida de la estructura y de sus distintos
+% componentes estructurales se determinará a partir de la combinación de acciones mayoradas más desfavorables. Se
+% tendrá en cuenta que muchas veces la mayor resistencia requerida resulta de una combinación en que una o más
+% acciones no están actuando.
+fprintf('1.2·D + 1.6·Lr + 0.8·W    (A.4.3-3) \n');
+fprintf('1.2·D + 1.6·W + f1·Lr     (A.4.3-4) (1)\n');
+fprintf('%1.2f·D + %1.2f·W          (A.4.3-6) (2)\n',[Prob_data.Cargas.Factor(1) Prob_data.Cargas.Factor(2)]);
+%%
+% (1) f1 = 0,5 para otras configuraciones de cargas según el artículo A.4.3
+% del CIRSOC 303-2009.
+%
+% (2) Se podrá usar 1,5 como factor de carga para viento (W) cuando se
+% consideren las velocidades básicas de viento _V_ del reglamento CIRSOC
+% 102-2005.
+
+%%
+% Analizando la combinación de cargas de la expresión (A.4.3-3), que tiene en cuenta una sobrecarga de uso por montaje o
+% reparaciones más la carga de viento obtenida en función de una ráfaga de viento de 50 años de recurrencia, se llega a la
+% conclusión de su poca probabilidad de ocurrencia y a fin de maximizar la eficiencia de la estructura se considera como
+% carga de diseño a la determinada por la expresión (A.4.3-6).
+
+%%
+% Se procederá a la alineación de las cargas sobre las correas
+% cuya separación es:
+fprintf('SepCorreas = %1.2fm\n', Prob_data.Geom.lc);
+%%
+% Se considera la presión global del viento sobre la estructura.
+%
+% _*4.1.- Determinación de D:*_
+%
+% Peso Propio de cubiertas de chapas:
+fprintf('PPcub = %1.2fN/m²·%1.2fm = %1.2fN/m\n', [Prob_data.Cargas.PPCub Prob_data.Geom.lc Prob_data.Cargas.PPCub*Prob_data.Geom.lc]);
+%%
+% Peso Propio de correas:
+Area = p_PropGeomArea(Prob_data.Predim.CO) ; % en cm^2
+PPcor = Area*(1/10000)*Prob_data.Mat.Acero.PesEsp*1000  ; %PesEsp en [kN/m^3]
+fprintf('PPcorr = %1.2fN/m\n',PPcor);
+%%
+% Peso total:
+PesoTotal = PPcor+Prob_data.Cargas.PPCub*Prob_data.Geom.lc;
+fprintf('D = %1.2fN/m',PesoTotal);
+%%
+% _*4.2.- Determinación de W actuante en las correas:*_
+% 
+% _Succión:_
+fprintf('W = %1.2fN/m \n',[Design.CO.q(1)])
+%%
+% _Presión:_
+fprintf('W = %1.2fN/m\n',[Design.CO.q(2)])
+%%
+% Por lo tanto, las cargas de diseño para las correas serán dos.
+% Para el caso predominante de succión:
+fprintf('qSuc = %1.2fN/m\n',[Design.CO.q(1)*Prob_data.Cargas.Factor(2)+PesoTotal*Prob_data.Cargas.Factor(1)])
+%%
+% Para el caso predominante de presión:
+fprintf('qPre = %1.2fN/m\n',[Design.CO.q(2)*Prob_data.Cargas.Factor(2)+PesoTotal*Prob_data.Cargas.Factor(1)])
+%%
+%
+% *5- Solicitaciones en las correas.*
+%
+% Se presentan a continuación las solicitaciones para el caso de carga
+% concentrada y un caso de solicitación por carga de viento.
+%
+% _*5.1.- Carga Puntual en tramo exterior.*_
+%
+copyfile('./Informes/Fig_Correas_Mf1.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_Correas_Mf1.png'])
+delete('./Informes/Fig_Correas_Mf1.png')
+%%
+% <<Fig_Correas_Mf1.png>>
+copyfile('./Informes/Fig_Correas_Q1.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_Correas_Q1.png'])
+delete('./Informes/Fig_Correas_Q1.png')
+%%
+% <<Fig_Correas_Q1.png>>
+%
+%%
+% _*5.2.- Carga Puntual en tramo interior.*_
+%
+copyfile('./Informes/Fig_Correas_Mf2.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_Correas_Mf2.png'])
+delete('./Informes/Fig_Correas_Mf2.png')
+%%
+% <<Fig_Correas_Mf2.png>>
+%
+copyfile('./Informes/Fig_Correas_Q2.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_Correas_Q2.png'])
+delete('./Informes/Fig_Correas_Q2.png')
+%%
+% <<Fig_Correas_Q2.png>>
+%
+
+%%
+% _*5.3.- Carga de viento en correas (Succión).*_
+%
+copyfile('./Informes/Fig_Correas_Mf3.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_Correas_Mf3.png'])
+delete('./Informes/Fig_Correas_Mf3.png')
+%%
+% <<Fig_Correas_Mf3.png>>
+%
+copyfile('./Informes/Fig_Correas_Q3.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_Correas_Q3.png'])
+delete('./Informes/Fig_Correas_Q3.png')
+%%
+% <<Fig_Correas_Q3.png>>
+%
+%%
+% _*5.4.- Carga de viento en correas (Presión).*_
+%
+copyfile('./Informes/Fig_Correas_Mf4.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_Correas_Mf4.png'])
+delete('./Informes/Fig_Correas_Mf4.png')
+%%
+% <<Fig_Correas_Mf4.png>>
+%
+copyfile('./Informes/Fig_Correas_Q4.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_Correas_Q4.png'])
+delete('./Informes/Fig_Correas_Q4.png')
+%%
+% <<Fig_Correas_Q4.png>>
+%
+
+%%
+% *6.- Dimensionamiento y verificación de las correas de la estructura*
+%
+% Se procede a la verificación de un perfil abierto C según los requerimientos establecidos 
+% por la norma CIRSOC 303-2009 para la resistencia a la flexión y a corte para las 
+% solicitaciones de la carga de diseño y la resistencia de diseño a carga concentrada. 
+%
+copyfile('./Informes/FigurasFijas/Perfil-C.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Perfil-C.png'])
+%%
+% <<Perfil-C.png>>
+%
+% Fig: Esquema del perfil adoptado para correas.
+fprintf('Perfil %s\n',[Prob_data.Predim.CO]) 
+
+%%
+% Propiedades del perfil:
+fprintf('B = %1.1fmm    t = %1.2fmm\n',[Design.CO.Bp*10 Design.CO.t*10])
+fprintf('R = %1.2fmm    Ht = %1.2fmm\n',[Design.CO.r*10 Design.CO.Ap*10])
+fprintf('A = %1.2fcm²\n',[Design.CO.Area])
+fprintf('Ixx = %1.2fcm⁴  Iyy = %1.2fcm⁴\n',[Design.CO.Ix Design.CO.Iy])
+fprintf('rx = %1.2fcm    ry = %1.2fcm\n',[Design.CO.rx Design.CO.ry])
+fprintf('Cw = %1.2fcm⁶  J = %1.2fcm⁴\n',[Design.CO.Cw Design.CO.J])
+fprintf('x0 = %1.2fcm    r0 = %1.2fcm\n',[Design.CO.x0 Design.CO.r0])
+%%
+% 1) Verificación de la relación de esbeltez
+%
+% *Elemento 1 - Alma*:
+fprintf('h/t = %1.0f   <  500 B.C.\n',Design.CO.a/Design.CO.t) 
+%%
+%
+% *Elemento 2 - Ala*:
+fprintf('d/t = %1.0f   <  60 B.C.\n',Design.CO.b/Design.CO.t) 
+%%
+%
+% *Elemento 3 - Labio*:
+if Design.CO.Tipo == 'C'
+    fprintf('b1/t = %1.2f   <  60 B.C.\n',Design.CO.c/Design.CO.t) 
+elseif Design.CO.Tipo == 'U'
+    fprintf('No corresponde.\n') 
+end
+%%
+%
+% 2) Verificación de la efectividad de la sección
+%
+% En función de los Arts. B.2.1, B.3.1 y B.4.2 se determina lo siguiente
+% con respecto a la efectividad de la sección del perfil:
+%
+%
+if Design.CO.Area >= Design.CO.Aefect
+    fprintf('El área del perfil A = %1.2fcm² es totalmente efectiva.\n', Design.CO.Area) 
+elseif Design.CO.Area < Design.CO.Aefect
+    fprintf('El área efectiva del perfil es Aefec = %1.2fcm², menor al área total A = %1.2fcm².\n', [Design.CO.Aefect Design.CO.Area]) 
+end
+%%
+% 3) Resistencia de diseño a la flexión.
+%
+% a) Resistencia nominal por viga lateral arriostrada en forma continua sección 
+% totalmente efectiva y con sección transversal simétrica respecto al eje
+% de flexión. (Art. C.3.1.1)
+fprintf('Md = Mn·Ø = %1.2fkNm > Mmáx = %1.2fkNm  B.C.\n',[Design.CO.Mmax(2) Design.CO.Mmax(1)])
+%%
+%
+% b) Resistencia al pandeo lateral torsional. (Art. C.3.1.1): Se adoptan arriostramientos a los tercios de la luz.
+fprintf('Md = Øb·Mn = 0.9·Sc·Fc·0.001 = %1.2fkNm > Mmáx = %1.2fkNm  B.C.\n',[Design.CO.Mmin(2) Design.CO.Mmin(1)])
+%%
+% *Aclaración:* Para la resistencia al Pandeo Lateral Torsional se tomó a la
+% correa como arriostrada (inferiormente) en los tercios de la luz. Además
+% se realizó una reducción del Mmáx de trabajo, al considerar una
+% corrección por cargas no aplicadas en el centro de corte de la sección
+% (Ver _'Estructuras de Acero,  Parte II - Gabriel Troglia'_ Ej.n°9, Pág.
+% 77.)
+%%
+%
+% 4) Resistencia de Diseño al corte. (Art. C.3.2.1)
+%
+fprintf('Vd = Øv·Vn = 0.95·Aw·Fv·0.01 = %1.2fkN > Vmáx = %1.2fkN  B.C.\n',[Design.CO.Qmax(2) Design.CO.Qmax(1)])
+%%
+%
+% 5) Resistencia de diseño al pandeo localizado en el alma.
+%
+% Se realiza el siguiente análisis para cargas concentradas de uso de 1Kn para 
+% almas sin perforaciones (Art. C.3.4.1.)
+%
+% a) Reacción en el apoyo 
+%
+% El ala se encuentra unida al apoyo y se considera una longitud de apoyo igual a 4cm, 
+% y la distancia entre el borde del apoyo al extremo de la barra igual a 1,5h = 16,8cm.
+if Design.CO.Rmax(2) > Design.CO.Rmax(1)
+    fprintf('Pd = ØN·PN = %1.2fkN > %1.2fkN  B.C.\n',[Design.CO.Rmax(2) Design.CO.Rmax(1)])
+else
+    fprintf('Pd = ØN·PN = %1.2fkN < %1.2fkN  M.C. ?\n',[Design.CO.Rmax(2) Design.CO.Rmax(1)])
+    fprintf('Se debe realizar un refuerzo al perfil en el apoyo para evitar el pandeo localizado.\n')
+end
+%%
+% 6) Verificación de las deformaciones en estado de servicio. (Art.
+% A.4.4.)
+%
+% Se verifica con carga de servicio:
+if Design.CO.flecha(1) < Design.CO.flecha(2)
+    fprintf('fx = %1.2fcm < %1.2fcm = fmáx = L/250   B.C.\n',[Design.CO.flecha(1) Design.CO.flecha(2)])
+else
+    fprintf('fx = %1.2fcm > %1.2fcm = fmáx = L/250   Malas condiciones de deformación   ?\n',[Design.CO.flecha(1) Design.CO.flecha(2)])
+end
+
+%%
+% *7.- Cálculo de las solicitaciones de los elementos de la cercha y las
+% columnas.*
+% 
+copyfile('./Informes/Fig_struture.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_structure.png'])
+delete('./Informes/Fig_struture.png')
+%%
+% <<Fig_structure.png>>
+%
+% 
+copyfile('./Informes/Fig_state1.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_state1.png'])
+delete('./Informes/Fig_state1.png')
+%%
+% <<Fig_state1.png>>
+%
+% Esquema de estructura con cargas aplicadas, correspondientes al estado 1
+% debido a Viento.
+idx = 0:10:length(Prob_data.Tablas.TracMax);
+Encabezado = '||Barra |      Perfil      | Long.[m] |Comp.Máx.[N]|Trac.Máx[N]||\n';
+fprintf(Encabezado);
+for i=1:length(Prob_data.Tablas.TracMax)
+     fprintf('|| %s  |  %s  |  %1.2f    |   %1.0f    |    %1.0f   ||\n',...
+         [ Prob_data.Tablas.Ubic(i)  Prob_data.Tablas.Secciones(i) Prob_data.Tablas.Long(i) Prob_data.Tablas.CompMax(i) Prob_data.Tablas.TracMax(i)]);
+     if ~mod(i,10)
+         fprintf(' \n');
+         fprintf(Encabezado);
+     end
+end
+fprintf(Encabezado);
+%%
+% _Tabla 3: se detallan los elementos que conforman la cercha
+% con los perfiles adoptados para cada caso.
+% También se detallan los máximos esfuerzos en cada
+% cordón, con los cuales serán verificados._
+%
+%%
+% Nota: Los casos nulos en la tabla anterior corresponden a barras que no
+% presentaron esfuerzos de tracción o compresión, según corresponda.
+%%
+% 
+% *8.- Dimensionamiento de la cercha*
+%
+% _*8.1.- Verificación del cordón superior.*_
+%
+% Se procede a la verificación del perfil adoptado según los requerimientos
+% establecidos por la norma CIRSOC 303-2009 para la resistencia a la
+% compresión axil.
+if Design.CS.Tipo == 'U'
+    copyfile('./Informes/FigurasFijas/Perfil-U.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/perfilCS.png']) 
+elseif Design.CS.Tipo == 'G'
+    copyfile('./Informes/FigurasFijas/Perfil-G.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/perfilCS.png'])
+end
+%%
+% <<perfilCS.png>>
+%
+% Fig: Esquema del perfil adoptado para el cordón superior.
+%
+% Propiedades del perfil:
+if Design.CS.Tipo == 'G'
+    fprintf('B = %1.1fmm    t = %1.2fmm\n',[Design.CS.Bp*10 Design.CS.t*10])
+    fprintf('R = %1.2fmm    Ht = %1.2fmm\n',[Design.CS.r*10 Design.CS.Ap*10])
+    fprintf('A = %1.2fcm²\n',[Design.CS.Area])
+    fprintf('Ixx = %1.2fcm⁴  Iyy = %1.2fcm⁴\n',[Design.CS.Ix Design.CS.Iy])
+    fprintf('rx = %1.2fcm    ry = %1.2fcm\n',[Design.CS.rx Design.CS.ry])
+    fprintf('Cw = %1.2fcm⁶  J = %1.2fcm⁴\n',[Design.CS.Cw Design.CS.J])
+    fprintf('x0 = %1.2fcm    r0 = %1.2fcm\n',[Design.CS.x0 Design.CS.r0])
+elseif Design.CS.Tipo == 'U'
+    fprintf('B = %1.1fmm    t = %1.2fmm\n',[Design.CS.Bp*10 Design.CS.t*10])
+    fprintf('R = %1.2fmm    Ht = %1.2fmm\n',[Design.CS.r*10 Design.CS.Ap*10])
+    fprintf('A = %1.2fcm²\n',[Design.CS.Area])
+    fprintf('Ixx = %1.2fcm⁴  Iyy = %1.2fcm⁴\n',[Design.CS.Ix Design.CS.Iy])
+    fprintf('rx = %1.2fcm    ry = %1.2fcm\n',[Design.CS.rx Design.CS.ry])
+    fprintf('Cw = %1.2fcm⁶  J = %1.2fcm⁴\n',[Design.CS.Cw Design.CS.J])
+    fprintf('x0 = %1.2fcm    r0 = %1.2fcm\n',[Design.CS.x0 Design.CS.r0])
+end
+%%
+% 1) Verificación de la relación de esbeltez
+%
+% *Elemento 1 - Alma*:
+fprintf('h/t = %1.0f   <  500 B.C.\n',Design.CS.a/Design.CS.t) 
+%%
+%
+% *Elemento 2 - Ala*:
+fprintf('d/t = %1.0f   <  60 B.C.\n',Design.CS.b/Design.CS.t) 
+%%
+%
+% *Elemento 3 - Labio*:
+if Design.CS.Tipo == 'G'
+    fprintf('b1/t = %1.2f   <  60 B.C.\n',Design.CS.c/Design.CS.t) 
+elseif Design.CS.Tipo == 'U'
+    fprintf('No corresponde.\n') 
+end
+%%
+%
+% 2) Verificación de la efectividad de la sección
+%
+% En función de los Arts. B.2.1, B.3.1 y B.4.2 se determina lo siguiente
+% con respecto a la efectividad de la sección del perfil:
+%
+%
+if Design.CS.Area >= Design.CS.Aefect
+    fprintf('El área del perfil A = %1.2fcm² es totalmente efectiva.\n', Design.CS.Area) 
+elseif Design.CS.Area < Design.CS.Aefect
+    fprintf('El área efectiva del perfil es Aefec = %1.2fcm², menor al área total A = %1.2fcm².\n', [Design.CS.Aefect Design.CS.Area]) 
+end
+%%
+% 3) Verificación a la compresión: 
+%
+% • Articulo C.4: Este artículo se aplica a barras en las cuales la
+% resultante de todas las cargas actuantes es una carga axial a lo largo
+% del eje del baricentro de la sección efectiva calculada para la tensión
+% Fn (MPa).
+%
+fprintf('Pd = Øc·Fn·Ae·0.1 = 0.85·%1.0f·%1.2f·0.1 = %1.2fkN > %1.2fkN  B.C.\n',[Design.CS.Fn Design.CS.Aefect 0.85*Design.CS.Fn*Design.CS.Aefect*0.1 abs(Design.CS.Nmin(2)/1000)])
+%%
+% 4) Verificación a la tracción:
+% 
+% Según el artículo C.2, para barras solicitadas a tracción, la resistencia
+% nominal a tracción, *Td*, en kN deberá ser el menor valor obtenido de los
+% estados límites de (a) fluencia en la sección bruta, (b) rotura en la
+% sección neta fuera de las uniones y (c) rotura en la sección neta
+% efectiva en la unión.
+%
+% En el presente análisis se analiza los primeros dos casos, dejando a lo
+% último las verificaciones de las uniones. Al no presentar uniones por
+% bulones, la sección bruta es igual a la sección neta efectiva.
+%
+%  (a) Fluencia en la sección bruta (Art. C.2-1)
+if 0.9*Design.CS.Fy*Design.CS.Area*0.1>Design.CS.Nmax(2)/1000
+    VerifFluBru = '%1.2fkN > %1.2fkN  B.C.\n';
+else
+    VerifFluBru = '%1.2fkN < %1.2fkN  M.C.!!! NO VERIFICA REDIMENSIONAR ?\n';
+end
+
+fprintf(['Td = Øt·Ag·Fy·0.1 = 0.9·%1.0f·%1.2f·0.1 = ' VerifFluBru],[Design.CS.Fy Design.CS.Area 0.9*Design.CS.Fy*Design.CS.Area*0.1 Design.CS.Nmax(2)/1000])
+%%
+%  (b) Rotura en la sección neta (Art. C.2-2)
+if 0.75*Design.CS.Fu*Design.CS.Area*0.1>Design.CS.Nmax(2)/1000
+    VerifRotNet = '%1.2fkN > %1.2fkN  B.C.\n';
+else
+    VerifRotNet = '%1.2fkN < %1.2fkN  M.C.!!! NO VERIFICA REDIMENSIONAR ?\n';
+end
+fprintf(['Td = Øt·An·Fu·0.1 = 0.75·%1.2f·%1.2f·0.1 = ' VerifRotNet],[Design.CS.Area Design.CS.Fu 0.75*Design.CS.Fu*Design.CS.Area*0.1 Design.CS.Nmax(2)/1000])
+%%
+% _*8.2.- Verificación del cordón inferior.*_
+%
+% Se procede a la verificación del perfil adoptado según los requerimientos
+% establecidos por la norma CIRSOC 303-2009 para la resistencia a la
+% compresión axil.
+if Design.CI.Tipo == 'U'
+    copyfile('./Informes/FigurasFijas/Perfil-U.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/perfilCI.png']) 
+elseif Design.CI.Tipo == 'G'
+    copyfile('./Informes/FigurasFijas/Perfil-G.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/perfilCI.png'])
+end
+%%
+% <<perfilCI.png>>
+%
+% Fig: Esquema del perfil adoptado para cordón inferior.
+%
+% Propiedades del perfil:
+if Design.CI.Tipo == 'G'
+    fprintf('B = %1.1fmm    t = %1.2fmm\n',[Design.CI.Bp*10 Design.CI.t*10])
+    fprintf('R = %1.2fmm    Ht = %1.2fmm\n',[Design.CI.r*10 Design.CI.Ap*10])
+    fprintf('A = %1.2fcm²\n',[Design.CI.Area])
+    fprintf('Ixx = %1.2fcm⁴  Iyy = %1.2fcm⁴\n',[Design.CI.Ix Design.CI.Iy])
+    fprintf('rx = %1.2fcm    ry = %1.2fcm\n',[Design.CI.rx Design.CI.ry])
+    fprintf('Cw = %1.2fcm⁶  J = %1.2fcm⁴\n',[Design.CI.Cw Design.CI.J])
+    fprintf('x0 = %1.2fcm    r0 = %1.2fcm\n',[Design.CI.x0 Design.CI.r0])
+elseif Design.CI.Tipo == 'U'
+    fprintf('B = %1.1fmm    t = %1.2fmm\n',[Design.CI.Bp*10 Design.CI.t*10])
+    fprintf('R = %1.2fmm    Ht = %1.2fmm\n',[Design.CI.r*10 Design.CI.Ap*10])
+    fprintf('A = %1.2fcm²\n',[Design.CI.Area])
+    fprintf('Ixx = %1.2fcm⁴  Iyy = %1.2fcm⁴\n',[Design.CI.Ix Design.CI.Iy])
+    fprintf('rx = %1.2fcm    ry = %1.2fcm\n',[Design.CI.rx Design.CI.ry])
+    fprintf('Cw = %1.2fcm⁶  J = %1.2fcm⁴\n',[Design.CI.Cw Design.CI.J])
+    fprintf('x0 = %1.2fcm    r0 = %1.2fcm\n',[Design.CI.x0 Design.CI.r0])
+end
+%%
+% 1) Verificación de la relación de esbeltez
+%
+% *Elemento 1 - Alma*:
+fprintf('h/t = %1.0f   <  500 B.C.\n',Design.CI.a/Design.CI.t) 
+%%
+%
+% *Elemento 2 - Ala*:
+fprintf('d/t = %1.0f   <  60 B.C.\n',Design.CI.b/Design.CI.t) 
+%%
+%
+% *Elemento 3 - Labio*:
+if Design.CI.Tipo == 'G'
+    fprintf('b1/t = %1.2f   <  60 B.C.\n',Design.CI.c/Design.CI.t) 
+elseif Design.CI.Tipo == 'U'
+    fprintf('No corresponde.\n') 
+end
+%%
+%
+% 2) Verificación de la efectividad de la sección
+%
+% En función de los Arts. B.2.1, B.3.1 y B.4.2 se determina lo siguiente
+% con respecto a la efectividad de la sección del perfil:
+%
+%
+if Design.CI.Area >= Design.CI.Aefect
+    fprintf('El área del perfil A = %1.2fcm² es totalmente efectiva.\n', Design.CI.Area) 
+elseif Design.CI.Area < Design.CI.Aefect
+    fprintf('El área efectiva del perfil es Aefec = %1.2fcm², menor al área total A = %1.2fcm².\n', [Design.CI.Aefect Design.CI.Area]) 
+end
+%%
+% 3) Verificación a la compresión: 
+%
+% • Articulo C.4: Este artículo se aplica a barras en las cuales la
+% resultante de todas las cargas actuantes es una carga axial a lo largo
+% del eje del baricentro de la sección efectiva calculada para la tensión
+% Fn (MPa).
+%
+fprintf('Pd = Øc·Fn·Ae·0.1 = 0.85·%1.0f·%1.2f·0.1 = %1.2fkN > %1.2fkN  B.C.\n',[Design.CI.Fn Design.CI.Aefect 0.85*Design.CI.Fn*Design.CI.Aefect*0.1 abs(Design.CI.Nmin(2)/1000)])
+%%
+% 4) Verificación a la tracción:
+% 
+% Según el artículo C.2, para barras solicitadas a tracción, la resistencia
+% nominal a tracción, *Td*, en kN deberá ser el menor valor obtenido de los
+% estados límites de (a) fluencia en la sección bruta, (b) rotura en la
+% sección neta fuera de las uniones y (c) rotura en la sección neta
+% efectiva en la unión.
+%
+% En el presente análisis se analiza los primeros dos casos, dejando a lo
+% último las verificaciones de las uniones. Al no presentar uniones por
+% bulones, la sección bruta es igual a la sección neta efectiva.
+%
+%  (a) Fluencia en la sección bruta (Art. C.2-1)
+if 0.9*Design.CI.Fy*Design.CI.Area*0.1>Design.CI.Nmax(2)/1000
+    VerifFluBru = '%1.2fkN > %1.2fkN  B.C.\n';
+else
+    VerifFluBru = '%1.2fkN < %1.2fkN  M.C.!!! NO VERIFICA REDIMENSIONAR ?\n';
+end
+
+fprintf(['Td = Øt·Ag·Fy·0.1 = 0.9·%1.0f·%1.2f·0.1 = ' VerifFluBru],[Design.CI.Area Design.CI.Fy 0.9*Design.CI.Fy*Design.CI.Area*0.1 Design.CI.Nmax(2)/1000])
+%%
+%  (b) Rotura en la sección neta (Art. C.2-2)
+if 0.75*Design.CI.Fu*Design.CI.Area*0.1>Design.CI.Nmax(2)/1000
+    VerifRotNet = '%1.2fkN > %1.2fkN  B.C.\n';
+else
+    VerifRotNet = '%1.2fkN < %1.2fkN  M.C.!!! NO VERIFICA REDIMENSIONAR ?\n';
+end
+fprintf(['Td = Øt·An·Fu·0.1 = 0.75·%1.2f·%1.2f·0.1 = ' VerifRotNet],[Design.CI.Area Design.CI.Fu 0.75*Design.CI.Fu*Design.CI.Area*0.1 Design.CI.Nmax(2)/1000])
+
+%%
+% _*8.3.- Verificación de las diagonales.*_
+%
+% Se procede a la verificación del perfil adoptado según los requerimientos
+% establecidos por la norma CIRSOC 303-2009 para la resistencia a la
+% compresión axil.
+if Design.DI.Tipo == 'U'
+    copyfile('./Informes/FigurasFijas/Perfil-U.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/perfilDI.png']) 
+elseif Design.DI.Tipo == 'C'
+    copyfile('./Informes/FigurasFijas/Perfil-C.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/perfilDI.png'])
+end
+%%
+% <<perfilDI.png>>
+%
+% Fig: Esquema del perfil adoptado para las diagonales.
+%
+% Propiedades del perfil:
+if Design.DI.Tipo == 'C'
+    fprintf('B = %1.1fmm    t = %1.2fmm\n',[Design.DI.Bp*10 Design.DI.t*10])
+    fprintf('R = %1.2fmm    Ht = %1.2fmm\n',[Design.DI.r*10 Design.DI.Ap*10])
+    fprintf('A = %1.2fcm²\n',[Design.DI.Area])
+    fprintf('Ixx = %1.2fcm⁴  Iyy = %1.2fcm⁴\n',[Design.DI.Ix Design.DI.Iy])
+    fprintf('rx = %1.2fcm    ry = %1.2fcm\n',[Design.DI.rx Design.DI.ry])
+    fprintf('Cw = %1.2fcm⁶  J = %1.2fcm⁴\n',[Design.DI.Cw Design.DI.J])
+    fprintf('x0 = %1.2fcm    r0 = %1.2fcm\n',[Design.DI.x0 Design.DI.r0])
+elseif Design.DI.Tipo == 'U'
+    fprintf('B = %1.1fmm    t = %1.2fmm\n',[Design.DI.Bp*10 Design.DI.t*10])
+    fprintf('R = %1.2fmm    Ht = %1.2fmm\n',[Design.DI.r*10 Design.DI.Ap*10])
+    fprintf('A = %1.2fcm²\n',[Design.DI.Area])
+    fprintf('Ixx = %1.2fcm⁴  Iyy = %1.2fcm⁴\n',[Design.DI.Ix Design.DI.Iy])
+    fprintf('rx = %1.2fcm    ry = %1.2fcm\n',[Design.DI.rx Design.DI.ry])
+    fprintf('Cw = %1.2fcm⁶  J = %1.2fcm⁴\n',[Design.DI.Cw Design.DI.J])
+    fprintf('x0 = %1.2fcm    r0 = %1.2fcm\n',[Design.DI.x0 Design.DI.r0])
+end
+%%
+% 1) Verificación de la relación de esbeltez
+%
+% *Elemento 1 - Alma*:
+fprintf('h/t = %1.0f   <  500 B.C.\n',Design.DI.a/Design.DI.t) 
+%%
+%
+% *Elemento 2 - Ala*:
+fprintf('d/t = %1.0f   <  60 B.C.\n',Design.DI.b/Design.DI.t) 
+%%
+%
+% *Elemento 3 - Labio*:
+if Design.DI.Tipo == 'C'
+    fprintf('b1/t = %1.2f   <  60 B.C.\n',Design.DI.c/Design.DI.t) 
+elseif Design.DI.Tipo == 'U'
+    fprintf('No corresponde.\n') 
+end
+%%
+%
+% 2) Verificación de la efectividad de la sección
+%
+% En función de los Arts. B.2.1, B.3.1 y B.4.2 se determina lo siguiente
+% con respecto a la efectividad de la sección del perfil:
+%
+%
+if Design.DI.Area >= Design.DI.Aefect
+    fprintf('El área del perfil A = %1.2fcm² es totalmente efectiva.\n', Design.DI.Area) 
+elseif Design.DI.Area < Design.DI.Aefect
+    fprintf('El área efectiva del perfil es Aefec = %1.2fcm², menor al área total A = %1.2fcm².\n', [Design.DI.Aefect Design.DI.Area]) 
+end
+%%
+% 3) Verificación a la compresión: 
+%
+% • Articulo C.4: Este artículo se aplica a barras en las cuales la
+% resultante de todas las cargas actuantes es una carga axial a lo largo
+% del eje del baricentro de la sección efectiva calculada para la tensión
+% Fn (MPa).
+%
+fprintf('Pd = Øc·Fn·Ae·0.1 = 0.85·%1.0f·%1.2f·0.1 = %1.2fkN > %1.2fkN  B.C.\n',[Design.DI.Fn Design.DI.Aefect 0.85*Design.DI.Fn*Design.DI.Aefect*0.1 abs(Design.DI.Nmin(2)/1000)])
+%%
+% 4) Verificación a la tracción:
+% 
+% Según el artículo C.2, para barras solicitadas a tracción, la resistencia
+% nominal a tracción, *Td*, en kN deberá ser el menor valor obtenido de los
+% estados límites de (a) fluencia en la sección bruta, (b) rotura en la
+% sección neta fuera de las uniones y (c) rotura en la sección neta
+% efectiva en la unión.
+%
+% En el presente análisis se analiza los primeros dos casos, dejando a lo
+% último las verificaciones de las uniones. Al no presentar uniones por
+% bulones, la sección bruta es igual a la sección neta efectiva.
+%
+%  (a) Fluencia en la sección bruta (Art. C.2-1)
+if 0.9*Design.DI.Fy*Design.DI.Area*0.1>Design.DI.Nmax(2)/1000
+    VerifFluBru = '%1.2fkN > %1.2fkN  B.C.\n';
+else
+    VerifFluBru = '%1.2fkN < %1.2fkN  M.C.!!! NO VERIFICA REDIMENSIONAR ?\n';
+end
+
+fprintf(['Td = Øt·Ag·Fy·0.1 = 0.9·%1.0f·%1.2f·0.1 = ' VerifFluBru],[Design.DI.Area Design.DI.Fy 0.9*Design.DI.Fy*Design.DI.Area*0.1 Design.DI.Nmax(2)/1000])
+%%
+%  (b) Rotura en la sección neta (Art. C.2-2)
+if 0.75*Design.DI.Fu*Design.DI.Area*0.1>Design.DI.Nmax(2)/1000
+    VerifRotNet = '%1.2fkN > %1.2fkN  B.C.\n';
+else
+    VerifRotNet = '%1.2fkN < %1.2fkN  M.C.!!! NO VERIFICA REDIMENSIONAR ?\n';
+end
+fprintf(['Td = Øt·An·Fu·0.1 = 0.75·%1.2f·%1.2f·0.1 = ' VerifRotNet],[Design.DI.Area Design.DI.Fu 0.75*Design.DI.Fu*Design.DI.Area*0.1 Design.DI.Nmax(2)/1000])
+
+%%
+% _*8.4.- Verificación de las barras de apoyos de la cercha.*_
+%
+% Se procede a la verificación del perfil adoptado según los requerimientos
+% establecidos por la norma CIRSOC 303-2009 para la resistencia a la
+% compresión axil.
+if Design.DA.Tipo == 'U'
+    copyfile('./Informes/FigurasFijas/Perfil-U.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/perfilDA.png']) 
+elseif Design.DA.Tipo == 'C'
+    copyfile('./Informes/FigurasFijas/Perfil-C.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/perfilDA.png'])
+end
+%%
+% <<perfilDA.png>>
+%
+% Fig: Esquema del perfil adoptado para barras de apoyo de la cercha.
+%
+% Propiedades del perfil:
+if Design.DA.Tipo == 'C'
+    fprintf('B = %1.1fmm    t = %1.2fmm\n',[Design.DA.Bp*10 Design.DA.t*10])
+    fprintf('R = %1.2fmm    Ht = %1.2fmm\n',[Design.DA.r*10 Design.DA.Ap*10])
+    fprintf('A = %1.2fcm²\n',[Design.DA.Area])
+    fprintf('Ixx = %1.2fcm⁴  Iyy = %1.2fcm⁴\n',[Design.DA.Ix Design.DA.Iy])
+    fprintf('rx = %1.2fcm    ry = %1.2fcm\n',[Design.DA.rx Design.DA.ry])
+    fprintf('Cw = %1.2fcm⁶  J = %1.2fcm⁴\n',[Design.DA.Cw Design.DA.J])
+    fprintf('x0 = %1.2fcm    r0 = %1.2fcm\n',[Design.DA.x0 Design.DA.r0])
+elseif Design.DA.Tipo == 'U'
+    fprintf('B = %1.1fmm    t = %1.2fmm\n',[Design.DA.Bp*10 Design.DA.t*10])
+    fprintf('R = %1.2fmm    Ht = %1.2fmm\n',[Design.DA.r*10 Design.DA.Ap*10])
+    fprintf('A = %1.2fcm²\n',[Design.DA.Area])
+    fprintf('Ixx = %1.2fcm⁴  Iyy = %1.2fcm⁴\n',[Design.DA.Ix Design.DA.Iy])
+    fprintf('rx = %1.2fcm    ry = %1.2fcm\n',[Design.DA.rx Design.DA.ry])
+    fprintf('Cw = %1.2fcm⁶  J = %1.2fcm⁴\n',[Design.DA.Cw Design.DA.J])
+    fprintf('x0 = %1.2fcm    r0 = %1.2fcm\n',[Design.DA.x0 Design.DA.r0])
+end
+%%
+% 1) Verificación de la relación de esbeltez
+%
+% *Elemento 1 - Alma*:
+fprintf('h/t = %1.0f   <  500 B.C.\n',Design.DA.a/Design.DA.t) 
+%%
+%
+% *Elemento 2 - Ala*:
+fprintf('d/t = %1.0f   <  60 B.C.\n',Design.DA.b/Design.DA.t) 
+%%
+%
+% *Elemento 3 - Labio*:
+if Design.DA.Tipo == 'C'
+    fprintf('b1/t = %1.2f   <  60 B.C.\n',Design.DA.c/Design.DA.t) 
+elseif Design.DA.Tipo == 'U'
+    fprintf('No corresponde.\n') 
+end
+%%
+%
+% 2) Verificación de la efectividad de la sección
+%
+% En función de los Arts. B.2.1, B.3.1 y B.4.2 se determina lo siguiente
+% con respecto a la efectividad de la sección del perfil:
+%
+%
+if Design.DA.Area >= Design.DA.Aefect
+    fprintf('El área del perfil A = %1.2fcm² es totalmente efectiva.\n', Design.DA.Area) 
+elseif Design.DA.Area < Design.DA.Aefect
+    fprintf('El área efectiva del perfil es Aefec = %1.2fcm², menor al área total A = %1.2fcm².\n', [Design.DA.Aefect Design.DA.Area]) 
+end
+%%
+% 3) Verificación a la compresión: 
+%
+% • Articulo C.4: Este artículo se aplica a barras en las cuales la
+% resultante de todas las cargas actuantes es una carga axial a lo largo
+% del eje del baricentro de la sección efectiva calculada para la tensión
+% Fn (MPa).
+%
+fprintf('Pd = Øc·Fn·Ae·0.1 = 0.85·%1.0f·%1.2f·0.1 = %1.2fkN > %1.2fkN  B.C.\n',[Design.DA.Fn Design.DA.Aefect 0.85*Design.DA.Fn*Design.DA.Aefect*0.1 abs(Design.DA.Nmin(2)/1000)])
+%%
+% 4) Verificación a la tracción:
+% 
+% Según el artículo C.2, para barras solicitadas a tracción, la resistencia
+% nominal a tracción, *Td*, en kN deberá ser el menor valor obtenido de los
+% estados límites de (a) fluencia en la sección bruta, (b) rotura en la
+% sección neta fuera de las uniones y (c) rotura en la sección neta
+% efectiva en la unión.
+%
+% En el presente análisis se analiza los primeros dos casos, dejando a lo
+% último las verificaciones de las uniones. Al no presentar uniones por
+% bulones, la sección bruta es igual a la sección neta efectiva.
+%
+%  (a) Fluencia en la sección bruta (Art. C.2-1)
+if 0.9*Design.DA.Fy*Design.DA.Area*0.1>Design.DA.Nmax(2)/1000
+    VerifFluBru = '%1.2fkN > %1.2fkN  B.C.\n';
+else
+    VerifFluBru = '%1.2fkN < %1.2fkN  M.C.!!! NO VERIFICA REDIMENSIONAR ?\n';
+end
+
+fprintf(['Td = Øt·Ag·Fy·0.1 = 0.9·%1.0f·%1.2f·0.1 = ' VerifFluBru],[Design.DA.Area Design.DA.Fy 0.9*Design.DA.Fy*Design.DA.Area*0.1 Design.DA.Nmax(2)/1000])
+%%
+%  (b) Rotura en la sección neta (Art. C.2-2)
+if 0.75*Design.DA.Fu*Design.DA.Area*0.1>Design.DA.Nmax(2)/1000
+    VerifRotNet = '%1.2fkN > %1.2fkN  B.C.\n';
+else
+    VerifRotNet = '%1.2fkN < %1.2fkN  M.C.!!! NO VERIFICA REDIMENSIONAR ?\n';
+end
+fprintf(['Td = Øt·An·Fu·0.1 = 0.75·%1.2f·%1.2f·0.1 = ' VerifRotNet],[Design.DA.Area Design.DA.Fu 0.75*Design.DA.Fu*Design.DA.Area*0.1 Design.DA.Nmax(2)/1000])
+
+%%
+% *9.- Dimensionamiento de las columnas.* 
+%
+% Según el artículo 10.8 del CIRSOC el lado mínimo de una columna debe ser
+% mayor a 200mm y el diámetro de las barras no menor a 12mm.
+%
+% _*9.1.- Predimensionamiento.*_
+%
+% Dimensiones de la columna:
+fprintf('Lado menor: bc = %1.0fcm\n',[Prob_data.Mat.Hormigon.Geom.b*100])
+fprintf('Lado mayor: ac = %1.0fcm\n',[Prob_data.Mat.Hormigon.Geom.h*100])
+% Donde *Ag* es el área bruta de la columna: 
+Ag = Prob_data.Mat.Hormigon.Geom.h*100*Prob_data.Mat.Hormigon.Geom.b*100;
+fprintf('Ag = %1.0fcm·%1.0fcm = %1.0fcm²',[Prob_data.Mat.Hormigon.Geom.h*100 Prob_data.Mat.Hormigon.Geom.b*100 Ag])
+%%
+% Además, se considera un recubrimiento de 3cm.
+%%
+% _Armadura adoptada_: El acero es de tipo 420.
+AstPred = Prob_data.Mat.Hormigon.Geom.Nb*(Prob_data.Mat.Hormigon.Geom.Db/10)^2*pi()/4;
+fprintf('Armadura principal por cara: Ast = %1.0fØ%1.0f = %1.2fcm²\n',[Prob_data.Mat.Hormigon.Geom.Nb Prob_data.Mat.Hormigon.Geom.Db AstPred])
+%AsEstr = (Diam_Estr/10)^2*pi()/4*(TipoAcero*10/1.75*2/bc/Sep_Estr)
+AePred = Prob_data.Mat.Hormigon.Geom.nm*(Prob_data.Mat.Hormigon.Geom.De/10)^2*pi()/4*(420*10/1.75*2/Prob_data.Mat.Hormigon.Geom.b/100/Prob_data.Mat.Hormigon.Geom.Se/100);
+fprintf('Armadura de corte: Ae = %1.0f Ø%1.0fc/%1.0fcm\n',[Prob_data.Mat.Hormigon.Geom.nm Prob_data.Mat.Hormigon.Geom.De Prob_data.Mat.Hormigon.Geom.Se*100])
+
+%%
+% _*9.2.- Verificaciones.*_
+%
+% La armadura mínima es:
+Astmin = 0.01*Ag;
+if Astmin < AstPred
+    fprintf('Astmin = 0.01·Ag = 0.01·%1.0fcm² = %1.2fcm² < Ast = %1.2fcm²   B.C.',[Ag 0.01*Ag AstPred])
+else
+    fprintf('MALAS CONDICIONES: Se debe redimensionar la armadura a flexión, ya que no cumple con la cuantía mínima.?')
+end
+
+%%
+% La armadura mínima por retracción y fragüe:
+Asmin = 0.0018*Ag;
+if Asmin < AstPred
+    fprintf('Asmín = 0.0018·bc·ac = 0.0018·%1.0fcm·%1.0f = %1.2fcm² < Ast = %1.2fcm²   B.C.',[Prob_data.Mat.Hormigon.Geom.b*100 Prob_data.Mat.Hormigon.Geom.h*100 Asmin AstPred])
+else
+    fprintf('MALAS CONDICIONES: Se debe redimensionar la armadura de flexión. La misma no cumple al mínimo por retracción y fragüe ?')
+end
+%% 
+% La armadura por flexión:
+
+[FlexVerif, CorteVerif, kh, ks_res, As_nec, tau, ZonaCorte, TensCorte, TensAsEstr] = Verif_Columna(Design.HA.Mmax(Prob_data.Mat.Hormigon.Fund.MinGamm)/100, ...
+    Design.HA.Qmax(Prob_data.Mat.Hormigon.Fund.MinGamm)/10000, -1, Design.HA.TipoHA, Design.HA.TipoAcero, Prob_data.Mat.Hormigon.Geom.h*100, ...
+    Prob_data.Mat.Hormigon.Geom.b*100, Prob_data.Mat.Hormigon.Geom.Db,...
+                      Prob_data.Mat.Hormigon.Geom.Nb, 3, Prob_data.Mat.Hormigon.Geom.De, Prob_data.Mat.Hormigon.Geom.Se*100,Prob_data.Mat.Hormigon.Geom.nm);
+%%
+% Para la determinación de la armadura de flexión:
+fprintf('kh = %1.2f, por lo tanto:  ks = %1.2f. \n', [kh ks_res])
+
+if FlexVerif
+    fprintf('Astmín = %1.2fcm² < Ast = %1.2fcm²    B.C.\n',[As_nec AstPred])
+else
+    fprintf('MALAS CONDICIONES: Se debe redimensionar la armadura de flexión. ?\n')
+end
+
+%%
+% La armadura por corte:
+fprintf('Tau = %1.2fkg/cm²; por lo tanto:  Zona de Corte: %1.0f; y la Tensión de Corte: %1.2fkg/cm² \n',[tau ZonaCorte TensCorte])
+if CorteVerif
+    fprintf('TensCorte = %1.2fkg/cm² < Ase = %1.2fkg/cm² B.C.\n',[TensCorte TensAsEstr])
+else
+    fprintf('MALAS CONDICIONES: Se debe redimensionar la armadura de corte. ?\n')
+end
+
+%%
+% *10.- Determinación del momento estabilizador de la fundación por el
+% método de SULZBERGER*
+%
+% El método se basa en un postulado que establece que para inclinaciones
+% límites del conjunto soporte (fundación) en un ángulo “α” respecto de la
+% vertical, tal que “tg(α)≤0,01”, el terreno se comportará de forma
+% elástica. De esta forma se obtiene además de una reacción en el fondo de
+% la fundación, una reacción de las paredes verticales, ambas definirán un
+% momento estabilizador que se opondrá al momento de vuelco provocado por
+% las cargas exteriores. Por esta razón, se adopta una inclinación del
+% conjunto fundación-soporte tal que tg(α)=0,01, pretendiendo aprovechar al
+% máximo el comportamiento elástico del suelo.
+%
+% _*10.1.- Características del suelo.*_
+%
+% 
+SigAdm = 110; %kN/m2
+fprintf('σadm = %1.0fkN/m² (%1.1fkg/cm²) ?\n',[SigAdm SigAdm/100])
+%%
+% 
+fprintf('C = %1.0fkN/m³ (%1.0fkg/cm³)\n',[Prob_data.Mat.Hormigon.Fund.C*10000 Prob_data.Mat.Hormigon.Fund.C])
+%%
+%  Coeficiente de fricción entre el terreno y el hormigón:
+mu = 0.4;
+fprintf('μ = %1.1f\n',mu)
+%%
+% Tangente del ángulo de giro *α* permitido de la base:
+fprintf('tg(α) = %1.2f\n',Prob_data.Mat.Hormigon.Fund.am)
+%%
+% Mínima relación entre los momentos dados por Sulzberguer y el momento de
+% volcamiento:
+fprintf('Gamma = %1.2f\n',Prob_data.Mat.Hormigon.Fund.gm)
+%%
+% _*10.2.- Características de los elementos estructurales.*_
+%
+% Profundidad de fundación:
+fprintf('H = %1.2fm\n',Prob_data.Mat.Hormigon.Fund.Hf)
+%%
+% Altura de la base de hormigón:
+fprintf('t = %1.2fm\n',Prob_data.Mat.Hormigon.Fund.t)
+%%
+% Lados de la base de hormigón, normal y paralelo a la cumbrera, respectivamente:
+fprintf('af = %1.2fm;    bf = %1.2fm',[Prob_data.Mat.Hormigon.Fund.a Prob_data.Mat.Hormigon.Fund.b])
+[Mensaje1, Mensaje2, G, Mequil, Mv, Ms, Mb] = Verificacion_Fundacion_Sulzberguer((Prob_data.Mat.Hormigon.Fund.Hf - Prob_data.Mat.Hormigon.Fund.t)*100,...
+        Prob_data.Mat.Hormigon.Fund.C, Prob_data.Mat.Hormigon.Fund.t*100, Prob_data.Mat.Hormigon.Fund.am, ...
+        Prob_data.Mat.Hormigon.Fund.a*100, Prob_data.Mat.Hormigon.Fund.b*100, Prob_data.Mat.Hormigon.Geom.h*100, ...
+        Prob_data.Mat.Hormigon.Geom.b*100, Prob_data.Mat.Hormigon.Mat.PesEsp*100, Design.HA.Fund.FzaV(Prob_data.Mat.Hormigon.Fund.MinGamm), Design.HA.Fund.FzaH(Prob_data.Mat.Hormigon.Fund.MinGamm), Design.HA.Fund.M(Prob_data.Mat.Hormigon.Fund.MinGamm), Prob_data.Mat.Hormigon.Fund.gm);
+Mequil = Mequil/100/101.97;
+Ms = Ms/100/101.97;
+Mv = Mv/100/101.97;
+Mb = Mb/100/101.97;
+G = G/101.97;
+%%
+% _*10.3.- Determinación del momento estabilizante.*_ 
+% 
+% El momento estabilizante *Me* producido por la fundación está conformado
+% por dos momentos:
+%%
+% 
+% # Momento de empotramiento *Ms* debido a las reacciones de las
+% paredes verticales de la fundación y a la fricción entre el suelo y el
+% hormigón.
+% # Momento de reacción de fondo *Mb* debido a la reacción de fondo
+% de la fundación, provocado por las cargas verticales actuantes.
+% 
+% _*Cálculo de Ms:*_ El método de Sulzberger acepta que la profundidad de
+% entrada del bloque dentro del terreno depende de la resistencia
+% específica o “presión admisible del suelo” contra la presión externa en
+% el lugar considerado. Esta presión es igual a la profundidad multiplicada
+% por el índice de compresibilidad *C*.
+%
+% *σ = C.λ*
+% 
+% Donde *λ* es la deformación del suelo producida por la fuerza externa y *C*
+% esta expresado en kN/m³.
+%
+copyfile('./Informes/FigurasFijas/Fig_Sulz01.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_Sulz01.png'])
+%%
+% <<Fig_Sulz01.png>>
+%
+% Considerando que la fricción en el fondo de la excavación actúa en su
+% valor total, el eje de giro del bloque se ubica en la base del mismo. Una
+% inclinación con ángulo α corresponde a un movimiento transversal de la
+% superficie “bf.dy” igual a “y.tg(α)”, donde “bf” es la dimensión del
+% bloque normal a la fuerza F, mientras que “y” es la distancia entre la
+% superficie mencionada y la base del bloque. Siendo Cy el índice de
+% compresibilidad del terreno en la profundidad considerada, la presión
+% unitaria será igual a:
+%
+% *σy = Cy·y·tg(α)*
+%
+% Expresión similar a la escrita anteriormente. La fuerza de reacción de la
+% pared de excavación será:
+%
+% *dFy =Cy·y·tg(α)·b·dy*
+%
+% El momento respecto al eje de giro en la base será: 
+%
+% *dMs = Cy·b·dy·y²·tg(α)*
+% 
+copyfile('./Informes/FigurasFijas/Fig_Sulz02.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_Sulz02.png'])
+%%
+% <<Fig_Sulz02.png>>
+%
+% Donde “Cy·b·dy·y²” representa el momento de inercia de la superficie de
+% carga “Cy·b·dy” con respecto al eje de giro. Entonces se puede escribir
+% como:
+%
+% *dMs = dI·tg(α)* 
+%
+% El índice C es una función lineal de la profundidad, por lo que se puede
+% decir que la superficie total de carga tiene la forma de un triángulo
+% isósceles con la base igual a “Ct·b” y una altura “t”. Designado el valor
+% de “C” en la profundidad “t” por “Ct” se puede establecer:
+%
+% *Cy = Ct · (1 - y/t)*
+%
+% Entonces: *dI = Ct·(1 - y/t)·b·y²·dy*
+% 
+% Por lo tanto: *I = (Ct·b·t³) / 12*
+%
+% Siendo el momento de empotramiento:
+%
+% *Ms = (1/12)·(bf·t³)·Ct·tg(α)*
+%
+% *Momento de empotramiento considerando el centro de giro actuando en la
+% base, cuando es inminente el desplazamiento de la base en el fondo.*
+%
+% Una vez excedida la capacidad friccional del fondo el eje empieza a
+% levantarse de su posición en el fondo de la excavación por lo que para
+% determinar el ángulo α que corresponde al momento se procede de la
+% siguiente forma. La presión unitaria en la profundidad “t-y” es igual a:
+%
+% *σy = Cy·λy*       pero con       *λy = y·tg(α)*
+%
+% Siendo:   *Cy = Ct·(1 - y/t)*      →     *σy = Ct·(1-y/t)·y·tg(α)*
+% 
+% Por lo que *σy* representa una función parabólica simétrica en relación con
+% la recta *y = t/2* (Ver figura).
+% 
+% Designando con *R = µ.G* la resultante de las fuerzas de resistencia de
+% la pared considerada, se puede escribir como:
+% 
+% *Ms = μ·G·t/2*
+%
+copyfile('./Informes/FigurasFijas/Fig_Sulz03.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_Sulz03.png'])
+%%
+% <<Fig_Sulz03.png>>
+% 
+% Siendo *G* la resultante de las cargas verticales y *μ* el coeficiente de
+% fricción estática entre la tierra y el hormigón al fondo de excavación.
+% Se considera que el eje de giro empieza a levantarse y el ángulo que
+% corresponde a este momento se puede calcular de la siguiente forma:
+%
+% *μ·G·t/2 = (1/12)·b·t³·Ct·tg(α)*
+%
+% siendo
+%
+% *tg(α) =  (6·μ·G) / (b·Ct·t²)*
+% 
+% Con el aumento del ángulo α disminuye la fricción hasta desaparecer. Por
+% lo tanto, se desprecia la fricción de fondo y se obtiene una situación en
+% la que el eje de giro se encuentra en el centro de gravedad de la
+% superficie de carga a una distancia igual a 1/3 de la profundidad *t*.
+% Por lo que el momento de inercia del triángulo con respecto al eje que
+% pasa por su baricentro es:
+% 
+% *I=(1/36)·bf·t³·Ct*    por lo tanto     *Ms = (1/36)·bf·t³·Ct·tg(α)*
+% 
+% Entonces el momento de empotramiento para el bloque de fundación con las
+% características mencionadas anteriormente considerando que el eje se
+% levanta de su posición en el fondo, será:
+% 
+fprintf('Ms = bf·t³/36·Ct·tg(α) = %1.2fkNm',Ms)
+
+%%
+% _*Cálculo de Mb:*_ Las cargas verticales hacen que el bloque se
+% introduzca en el terreno hasta una profundidad igual a:
+%
+% *λ0 = G/(af·bf·Cb)*  (cm)
+% 
+% Donde:
+% *G*: Es la resultante de las cargas verticales.
+% *af·bf*: Son las dimensiones de la base rectangular.
+% *Cb*: Índice de compresibilidad en el fondo.
+% 
+% Bajo la acción del momento exterior de volcamiento aplicado en la
+% estructura, el bloque de fundación se inclina un ángulo “α” levantándose
+% en un extremo y bajándose en el opuesto.
+%
+% La resultante de las fuerzas de reacción de fondo es igual a G. Donde G
+% es la suma de las acciones verticales de la superestructura más el peso
+% propio de la fundación más el peso del talud de suelo gravante. Con
+% aumento del ángulo “α” se acorta el prisma de tensiones generado por la
+% resultante G. Por lo que el centro de giro debe encontrarse por encima
+% del centro de gravedad del prisma, siendo para condiciones de equilibrio
+% cuando la base del bloque toca el fondo de excavación en su superficie
+% total, se puede establecer lo siguiente:
+%
+% *Mb = G·s*           siendo      *s =  af/2 - c*
+%
+% Con   *c = (af/3)·[(λ0+λ')+2·(λ0-λ')] / [(λ0+λ')+(λ0-λ')]
+% = af·[0,5 - λ'/(6·λ0)]*
+% 
+% *λ' = af/2·tg(α)*;      *λ0 = G / (af·bf·Cb)*
+% 
+% →     *s = (af³·bf·Cb)/(12·G)·tg(α)*
+%
+% ∴  *Mb =  (1/12)·bf·af³·Cb·tg(α)*
+% 
+copyfile('./Informes/FigurasFijas/Fig_Sulz04.png', ['./Informes/Proyecto_' Prob_data.Rell.Proyect '/Fig_Sulz04.png'])
+%%
+% <<Fig_Sulz04.png>>
+% 
+% La posición externa se caracteriza por un ángulo *α* obtenido de la
+% siguiente forma:
+% 
+% *af·tg(α) = 2·λ0*   ∴  *tg(α) = (2·G)/(af·bf·Cb)*
+% 
+% En condiciones en que la base se levante hasta el punto en que no toque
+% el fondo, se puede calcular el momento de la siguiente forma:
+% 
+% *Mb = G·s = G·(af/2 - x/3)*
+% 
+% Siendo el volumen del prisma de tensiones igual a:
+% 
+% *G = σ·bf·x/2*
+% 
+% Donde *σ* es la tensión máxima del terreno al fondo de la excavación:
+% 
+% *σ = Cb·(λ0 + λ') = Cb·x·tg(α)*
+% ∴ *G = 1/2·x²·bf·Cb·tg(α)*
+% 
+% Siendo:    *x = [(2·G)/(bf·Cb·tg(α))]*
+% 
+% Por lo tanto, sustituyendo dichos valores en la ecuación del momento *Mb*, se tiene:
+% 
+fprintf('Mb = G·[af/2-0.471·( G / sqrt(bf·Cb·tgα))]')
+%%
+% 
+% Se procede al cálculo del momento de fondo considerando que la base se
+% levanta hasta no tocar dicha superficie, se tiene:
+%
+% *G = Gc + Gb*
+%
+% *Gc = γh·(ac.bc.h)*
+% 
+% *Gb = γh·(af.bf.t)*
+%
+% Siendo *Cb = 1,2.Ct*. Por lo tanto se tiene:
+% 
+fprintf('Mb = G·[af/2-0.471·sqrt(G/(bf·Cb·tgα))] = %1.2fkNm', Mb)
+%%
+% 
+% Y el momento estabilizador será: 
+fprintf('Me = Ms + Mb = %1.2fkNm + %1.2fkNm = %1.2fkNm',[Ms Mb Mequil])
+%%
+%
+% Por otro lado, el momento de volcamiento se determina de la siguiente
+% manera:
+fprintf('Mv = MaxFzaH·(H + 2/3·t) + M = %1.2fkNm\n', Mv)
+if Mensaje1
+    fprintf('Me = %1.2fkNm > %1.2fkNm = gamma·Mv    B.C.\n',[Mequil Prob_data.Mat.Hormigon.Fund.gm*Mv])
+else
+    fprintf('Me = %1.2fkNm < %1.2fkNm = gamma·Mv.... MALAS CONDICIONES ? La base no verifica al volcamiento.\n',[Mequil Prob_data.Mat.Hormigon.Fund.gm*Mv])
+end
+%%
+% _*10.4.- Verificación al arrancamiento.*_
+% 
+% La resultante de cargas verticales *G* debe cumplir:
+if Mensaje2
+    fprintf('G = %1.2fkN > %1.2fkN B.C. para la verificación al arrancamiento.\n',[G max(Design.HA.Fund.FzaV)])
+    if all(Design.HA.Fund.FzaV<0)
+        fprintf('El peso propio proporciona una resultante hacia abajo, como acción contraria para todos los casos de succión de viento.')
+    end
+else
+    fprintf('MALAS CONDICIONES: NO VERIFICA AL ARRANCAMIENTO ? ')
+end
+%%
+% _*10.5.- Verificación de tensión máxima del suelo.*_
+%
+% Las cargas gravitatorias máximas son:
+FVMax = Prob_data.Mat.Hormigon.Fund.MaxFzaBase;
+fprintf('FVertMáx = %1.2fkN', [FVMax])
+%%
+% Por lo tanto, la relación entre tensión de trabajo y tensión admisible
+% del suelo es:
+SigAdm = 110; %kN/m2
+SigTra = FVMax/(Prob_data.Mat.Hormigon.Fund.a*Prob_data.Mat.Hormigon.Fund.b);
+if SigAdm/SigTra > 1
+    fprintf('σadm/σtrb = %1.0fkN/m²/%1.0fkN/m² = %1.0f ? > 1    B.C.\n',[SigAdm SigTra SigAdm/SigTra])
+else
+    fprintf('σadm/σtrb = %1.0fkN/m²/%1.0fkN/m² = %1.0fkN/m² ? < 1    MALAS CONDICIONES A LA TENSIÓN DE TRABAJO DEL SUELO\n',[SigAdm SigTra SigAdm/SigTra])
+end
+
+##### SOURCE END #####
+--></body></html>

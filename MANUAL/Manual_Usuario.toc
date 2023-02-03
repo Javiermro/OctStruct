@@ -1,0 +1,7 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Caracter\IeC {\'\i }sticas principales}{1}%
+\contentsline {subsection}{\numberline {1.1}Objetivos}{1}%
+\contentsline {subsection}{\numberline {1.2}Especificaciones}{2}%
+\contentsline {subsection}{\numberline {1.3}Restricciones de dise\~no}{2}%
+\contentsline {section}{\numberline {2}Ingreso de datos}{4}%
+\contentsline {section}{\numberline {3}Memoria t\'ecnica}{7}%

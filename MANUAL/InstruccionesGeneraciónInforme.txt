@@ -1,0 +1,41 @@
+Impresión del informe:
+El informe será generado en una carpeta dentro de la carpeta existente llamada "Informes".
+
+Ejemplo: Si el archivo *.dat de datos lleva el nombre "CalculoPolideportivo.dat", el programa generará (dentro de "Informes") una carpeta llamada "Proyecto_CalculoPolideportivo". Dentro de dicha carpeta se tendrán distintos archivos que conforman el informe completo. 
+Si la carpeta no existe, será creada la primera vez que se corra el problema "CalculoPolideportivo.dat". Si la carpeta y su contenido ya existen, todo será sobre-escrito cada vez que se vuelva a correr el problema "CalculoPolideportivo.dat".
+
+El archivo generado siempre se llamará "informe.html". Solo en caso de que el edificio sea de cubierta aislada, el archivo generado se llamará "informeCubAis.html"
+
+Formato del archivo:
+El informe es generado en formato HTML. Dicho formato puede ser leído por el programa Microsoft Word. Sin embargo, en necesario que todas las figuras generadas en el informe permanezcan en la misma carpeta en la que se encuentra el archivo "informe.html".
+
+Se recomiendan los siguientes pasos:
+
+*Cargar los datos en el archivo DAT (CalculoPolideportivo.dat en el ejemplo).
+
+*Correr el programa.
+
+*Verificar en el "Command Window" de Matlab que no haya errores. Si no existen errores, el software finalizó el cálculo, lo que NO IMPLICA que todos los elementos hayan verificado.
+
+*Verificar en el "Command Window" de Matlab la existencia de "Warnings". Éstos son avisos que arroja el programa en caso de que alguna pieza o sección del cálculo no haya verificado y sea necesario redimensionar.
+
+*Abrir el informe desde un navegador de internet (Chrome, Firefox, etc). Esto se logra presionando las teclas Ctrl+o (control mas letra o). 
+Revisar las secciones obtenidas en el cálculo. (Recordar que el programa NO DIMENSIONA las columnas de Hormigón Armado, tampoco las Bases, solo Verifica lo predimensionado)
+
+*Dentro del informe se puede hacer una búsqueda del símbolo "?". Dicho símbolo aparecerá en aquellas verificaciones que no han sido cumplidas. La búsqueda se puede realizar presionando las teclas Ctrl+f (control más letra f), y en el cuadro ingresar el símbolo "?".
+
+(Todo lo mencionado hasta aquí se puede hacer también desde el programa Word.)
+
+*Cuando haya que modificar predimensionamientos (agregar armadura de flexión o ramas de estribos, etc), se modifican dichos datos en el archivo "CalculoPolideportivo.dat", y se vuelve a correr el programa. Tener en cuenta que, al ser el mismo archivo "CalculoPolideportivo.dat", lo generado en el cálculo anterior se sobre-escribirá con los nuevos datos.
+
+*Una vez terminado el cálculo, volver a abrir el archivo "informe.html" y repetir la búsqueda de errores y/o warnings hasta satisfacer los requerimientos de cálculo.
+
+*Finalización del informe:
+Una vez que en todos los items se obtuvieron los resultados deseados, se procede al arreglo del formato del informe. En esta etapa se recomienda trabajar en Word, abriendo el archivo "informe.html" para modificar todo lo que se desee en cuanto a formato:
+Tamaño de texto, tipos de letras, tamaño y ubicación de figuras, etc. También se pueden agregar aquellos cálculos que no están contemplados en el programa o quitar aquellos que el calculista considera no necesarios.
+
+*Finalizados todos los trabajos de formato, se procede a imprimir el informe en formato PDF.
+
+
+
+

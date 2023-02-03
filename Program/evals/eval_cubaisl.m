@@ -1,0 +1,10 @@
+z = 1;
+L = 60;
+W = 30;
+theta = 11.31;
+qz  = 1;
+Estados = 1;
+ModeloCerch = 2;
+eps  = 0;
+PosBloqueo = 0; % 0: en alero mas bajo. 1: en alero mas alto.
+[Cpn] = MatrizPresionesNetas_CubAisl(z,L,W,theta,qz,Estados,ModeloCerch,eps,PosBloqueo)

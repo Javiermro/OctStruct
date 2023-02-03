@@ -1,0 +1,285 @@
+\documentclass[a4paper,12pt]{article} %{Plan} %,openright,titlepage
+
+\RequirePackage[spanish]{babel}
+\RequirePackage[latin1]{inputenc}
+\RequirePackage{fancyvrb}
+\RequirePackage{amsmath}
+\usepackage{fancyhdr} %para encabezados y pie de pagina
+\usepackage{graphics}
+\usepackage{graphicx}
+%\sloppy 
+%\pagestyle{fancy}
+\usepackage{fancyhdr}
+\usepackage{colortbl} %colorear celdas de tablas
+%\cfoot{\small{Javier Luis Mroginski}}
+
+
+
+\setlength{\voffset}{-25.4mm}
+\setlength{\hoffset}{-15.4mm}
+\setlength{\topmargin}{0mm}
+\setlength{\headheight}{20mm}
+\setlength{\headwidth}{16cm}
+\setlength{\headsep}{10mm}
+\setlength{\textheight}{248mm}
+\setlength{\textwidth}{160mm}
+\setlength{\footskip}{10mm}
+%\setlength{\marginparsep}{25mm}
+\setlength{\oddsidemargin}{25mm}
+%\setlength{\parindent}{0pt} %Elimina la sangría
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex} %deja mas espacios entre los parrafos
+
+
+\newcommand{\bolds}[1]{\boldsymbol{#1}}
+\newcommand{\boldm}[1]{\mathbf{#1}}
+\newcommand{\eref}[1]{{Eq. (\ref{#1})}}
+\newcommand{\fref}[1]{{Fig. \ref{#1}}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Soft}{\textit{OctStruct v1.0}}
+
+\rhead{\scriptsize\scshape Manual de usuario \Soft}
+\cfoot{\thepage}
+
+\pagestyle{fancy}
+
+\title{%\includegraphics{unne}\\
+\textbf{MANUAL DE USUARIO \Soft}
+%\ \\
+%\Large MAESTRÍA EN CIENCIAS DE LA INGENIERÍA.\\
+%PLAN DE TESIS.
+}
+\date{Octubre 2022}
+%\author{Febrero 2007}
+
+\begin{document}
+%\onehalfspacing %produce un interlineado de 1 y 1/2 en todo el documento
+\maketitle
+%\frenchspacing
+%\large 
+\Large
+
+\noindent\rule{1.0\textwidth}{0.1mm}
+\vspace{-4mm}
+
+\noindent Software para el dimensionado, diseño y optimización de estructuras metálicas centrado en especificaciones constructivas.
+
+\noindent\rule{1.0\textwidth}{0.1mm}
+\normalsize
+
+%PETER
+% Programa
+% Empresarial
+% 
+
+\tableofcontents		%genera el indice
+%\vspace{10mm}
+
+\section{Características principales}
+\subsection{Objetivos}
+El software \Soft está desarrollado en el entorno Matlab y cumple con los siguientes objetivos generales:
+
+\begin{description}
+	\item[A)] Diseñar cerchas metálicas según 5 modelos prefijados.
+	\item[B)] Proponer la alternativa mas económica para las variables geométricas estipuladas por el proyectista.
+	\item[C)] Verificar las condiciones de servicio según la normativa vigente.
+	\item[D)] Generar la memoria técnica con todas las especificaciones del proyecto y exporar un plano en formato \textit{.dxf} de la geometría de la cercha (ver Sección \ref{SecInfo}).
+\end{description}
+
+
+\subsection{Especificaciones}
+Se detallan a continuación las especificaciones técnicas del software \Soft 
+
+\begin{description}
+	\item[Perfil de usuario:] El software \Soft está desarrollado para usuarios con conocimientos técnicos intermedios en informática y con base técnica en ingeniería de proyectos suficiente como para manejar los datos en forma adecuada e interpretar los resultados obtenidos.
+	\item[Lenguaje:] Entorno Matlab R2020a
+	\item[Entrada de datos:] A través de fichero \textit{.dat} detallado en la Sección \ref{SecDat}.
+	\item[Norma para determinar las cargas de uso y peso propio:] CIRSOC 101.
+	\item[Norma para determinar las cargas de viento:] CIRSOC 102.
+	\item[Norma para verificación de estructuras métalicas:] CIRSOC 303.
+	\item[Norma para verificación de columnas de hormigón armado:]  CIRSOC 201.
+	\item[Hipótesis de cálculo estructura metálica:] Para la determinación de las solicitaciones se asume linealidad elástica del material y se resuelve el problema de equilibrio empleando el método de la rigidez para pórticos planos, considerando nudos rígidos.
+	\item[Hipótesis de cálculo para las fundaciones:] Método Sulzberguer (Maciejewski, AMIEE, SEPE).
+\end{description}
+
+
+\subsection{Restricciones de diseño}
+Se detallan a continuación las restricciones de diseño impuestas por el proyectista e implementadas en el software \Soft.
+
+\begin{description}  
+	\item[Perfiles adoptables:] Para el diseño y dimensionado, el software emplea 3 (tres) opciones de perfiles de chapa plegada, los U, C y G (ver \fref{FigPerfiles}).
+	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=0.25\textwidth]{Figuras/Perfil-C}
+		\includegraphics[width=0.15\textwidth]{Figuras/Perfil-U}
+		\includegraphics[width=0.2\textwidth]{Figuras/Perfil-G}
+		\caption{Perfiles empleados}
+		\label{FigPerfiles}
+	\end{figure}
+
+	\item[Modelos:] Se adoptan 5 modelos de cerchas, modelo 1, 2 y 3 correspondientes a cerchas de cubiertas planas a dos aguas, modelo 4 cercha de cubierta curva a dos aguas, y modelo 5 que corresponde a una cercha de cubierta plana a un agua (ver \fref{FigModel}).
+	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Figuras/modelos} 
+		\caption{Modelos de cerchas}
+		\label{FigModel}
+	\end{figure}
+
+	\item[Secciones:] Se emplean perfiles de chapa plegada U y/o G  para diseñar los cordones inferior (CI) y superior (CS), mientras que las diagonales (DI o DA) pueden ser diseñadas con perfiles U y/o C. Las correas sólo admiten perfiles C.\\
+	En el diseño de cerchas, se adopta la misma longitud del alma para todos los perfiles, de modo que puedan encastrar en los nudos en forma exacta.\\
+	Las diagonales de apoyo (DA), son las diagonales usualmente más solicitas por lo cual pueden diferir de las diagonales comunes (DI) pero sólo en el espesor de la chapa.
+	\item[Separación de correas:] La separación de las correas está dada por la longitud de las barras del CS. Si no se indica lo contrario, adoptará valores entre 1.00m y 1.50m.
+	\item[Brazo de momento:] La altura del bazo de momento del CS (no aplica para todos los modelos) se adopta igual al 3\% de la luz de la cercha, excepto en el modelo 5 que adopta 5\%.
+	\item[Pendiente:] Las pendientes máxima y mínima en modelos de cubiertas planas son 35.0\% y 2.5\%, respectivamente. 
+	\item[Separación entre cerchas:] La separación entre cerchas es constante y debe ser  múltiplo del largo total de la cumbrera.
+	\item[Predimensionado:] Las características geométricas de los perfiles de las cerchas pueden ser introducidas por el usuario o bien permitir al software que las selecciones de un fichero \textit{Cordon.dat} o \textit{Diagonal.dat}, según que corresponda, en el marco del algoritmo de optimización desarrollado en \Soft. Dicho algoritmo no incluye la optimización de las correas, columnas y fundaciones. 
+	\item[Columnas:] Las columnas son de hormigón armado y tanto sus dimensiones como la armadura deben ser ingresados por el usuario, el software realizará la verificación de las mismas según la normativa vigente.	
+	\item[Fundaciones:] Las fundaciones son cabezales de hormigón dimensionados por el usuario y verifico por el software empleando el método de Sulzberguer.
+\end{description}
+
+
+
+
+
+ 
+\section{Ingreso de datos}
+\label{SecDat}
+El ingreso de datos se realiza a través del archivo \textbf{Data/entrada.dat}, donde \textit{Data} es la carpeta y \textit{entrada.dat} es el fichero con toda la información de entrada.
+
+Es importante respetar cada palabra clave y el orden dentro del fichero. El símbolo \$ da la orden de saltear la lectura en el fichero, es para realizar comentarios que no serán tenidos en cuenta por el software. Usar el punto como separador decimal.
+
+Las unidades empleadas, salvo especificación en contra, corresponden al sistema internacional, 
+\begin{description}
+	\item[Longitud =] Metro [m]
+	\item[Fuerza =] Newton [N]
+	\item[Presión =] Pascal [Pa]
+\end{description}
+ 
+A continuación se describen las distintas secciones y palabras claves que deben ser definidas en el fichero de entrada: 
+\begin{enumerate}
+	\item \textbf{TÍTULO}: Describir el título del proyecto [por defecto ``Proyecto de estructura''].
+	\item \textbf{FECHA}: Incluir fecha [por defecto se indica la fecha actual].
+	\item \textbf{CALCULISTA}: Incluir nombre y apellido del calculista [por defecto se guarda ``Calculista''].
+	\item \textbf{SOLICITANTE}: Incluir nombre y apellido del solicitante [por defecto se guarda ``Solicitante''].
+	\item \textbf{MODELO}: Seleccionar el modelo adoptado entre 1 y 5.
+	\item \textbf{PENDIENTE/FLECHA}: Para cubiertas planas (modelos 1, 2, 3 y 5): incluir la pendiente mínima y máxima en porcentaje (por ejemplo, para una pendiente del 20\% adoptar 0.20). Si no desea que el algoritmo modifique la pendiente, indicar un solo valor. Si no se indica ningún valor se adoptan las pendientes mínima y máxima igual a 2.5\% y 35.0\%, respectivamente. \\	
+	Para Cubierta curva (modelo 4): adoptar la flecha\footnote{La flecha se define como la mayor distancia vertical entre el extremo superior de las columnas y el cordón inferior} mínima y máxima en metro [m], si no desea que el algoritmo modifique la flecha, indicar un solo valor. Si no se indica ningún valor se adoptan las flechas mínima y máxima igual al 2.5\% y 35.0\% de la luz de la cercha, respectivamente. 
+	
+	\item \textbf{CORREAS}: Ingresar la separación de correas mínima y máxima, en metro [m], para que el algoritmo de optimización lleve a cabo las iteraciones y determina la configuración mas económica. Si no se indica ningún valor el algoritmo realiza iteraciones entre 1.00m y 1.50m, mientras que si se indica un sólo valor, el algoritmo lo tomará como constante y no realizará las iteraciones. La separación de correas definirá la longitud de los elementos del CS. 
+	
+	\item \textbf{BRAZO}: Ingresar la altura del brazo de momento del CS (no aplica para todos los modelos) se adopta igual al 3\% de la luz de la cercha en todos los modelos a dos aguas, para el modelo 5 adopta 5\%.
+	
+	\item \textbf{GEOMETRÍA}: Se ingresan los siguientes datos geométricos de la cercha:\\	
+	\textbf{L }: luz de la cercha (desde ejes de columnas) [m].\\	
+	\textbf{Lt}: longitud de la cumbrera [m].\\	
+	\textbf{Lc}: separación entre cerchas [m].
+	
+	\item \textbf{ACERO F24}: No ingresar datos, el código emplea acero F24.
+	
+	\item \textbf{HORMIGÓN H21}: No ingresar datos, el código emplea hormigón H21.
+	
+	\item \textbf{COLUMNAS}: Ingresar los datos de las columnas de hormigón. En el modelo a un agua (modelo 5) corresponde a la columna de menor altura. Datos:\\
+	\textbf{Hc}: altura de columna [m].\\
+	\textbf{Bc}: ancho (de flexión) de columna, perpendicular a cumbrera [m].\\
+	\textbf{b }: ancho paralelo a cumbrera [m].\\
+	\textbf{Db}: diámetro de barras [mm].\\
+	\textbf{nb}: cantidad de barras.\\
+	\textbf{De}: diámetro de estribos [mm].\\
+	\textbf{Se}: separación de estribos [m].\\
+	\textbf{nm}: número de ramas de estribos.
+		
+	\item \textbf{FUNDACIONES}: ingresar las características geométricas de las fundaciones. Datos:\\
+	\textbf{Hf}: profundidad de fundación, desde el nivel de terreno hasta la cota de fundación [m].\\
+	\textbf{t }: Altura de la base de hormigón [m].\\
+	\textbf{a }: Lado de la base de hormigón, perpendicular a cumbrera [m].\\
+	\textbf{b }: Lado de la base de hormigón, paralelo a cumbrera [m].\\
+	\textbf{C }: Coeficiente de Balasto a 2m de profundidad [kg/cm$^3$].\\  	
+	\textbf{am}: tangente del ángulo de giro permitido de la base.\\ 
+	\textbf{gm}: Mínima relación entre los momentos dados por Sulzberguer y el momento de volcamiento.
+	
+	
+	\item \textbf{FACTORES}: ingresar los tres factores de los estados de carga reglamentarios, $C1\cdot D + C2\cdot W + C3\cdot Lt$, con $D = peso propio$, $W = viento\ perpendicular\ y\ paralelo\ cumbrera$ y $Lr = Cargas\ de\ uso$. Datos [\textbf{C1 C2 C3}]
+	
+	Del apéndice B del reglamento CIRSOC 102 se expresa la combinación de factores adecuada para naves industriales de estas características:\\ \vspace{-7mm}
+	\begin{itemize}
+		\item 1.2 D + 0.8 W + 1.6 Lr
+		\item 1.2 D + 1.6 W + 0.5 Lr
+		\item 0.9 D + 1.6 W  
+	\end{itemize}   
+	
+	\item \textbf{CARGAS}: ingresar:\\
+	\textbf{pp}: Peso propio cubierta [N/m$^2$].\\
+	\textbf{ps}: Sobre carga de Uso [N/m$^2$].
+	
+	\item  \textbf{USO}: se piden datos sobre el uso y la exposición de las estructuras para determinar la acción del viento sobre las mismas reglamentado en el CIRSOC 102.
+	\textbf{Exposición} (Sección 5.6.1 del reglamento): El valor a ingresar debe ser alguna de las siguientes opciones: [A, B, C, D].\\	
+	\textbf{Categoría} (Tabla A-1 del reglamento): El valor a ingresar debe ser alguna de las siguientes opciones: [I, II, III, IV].\\	
+	\textbf{Velocidad} (Figura B-1 del reglamento): Ingresar el valor de la velocidad de referencia del viento en [m/s].\\	
+	\textbf{Edificio} (Capítulo 2 del reglamento): determinar si el edificio es "Cerrado", "Parcialmente Cerrado" o "Abierto". Una vez determinado dicho dato, se debe ingresar alguna de las 3 siguientes opciones: [Cerrado, PCerrad, Aislado].\\
+	\textbf{Relación de bloqueo $\zeta$}: puede tomar valores entre 0 y 1 (inclusive).\\	
+	\textbf{Posición de Bloqueo}: puede adoptar solo dos valores;  0: para el bloqueo en el alero mas alto; 1: para el bloqueo en el alero mas bajo. Esto sólo aplica al caso de de cubiertas con pendiente única. Si la cubierta es a dos aguas, el valor de la posición de bloqueo es indistinto.
+	
+	\textit{IMPORTANTE: El reglamento CIRSOC 102 NO CONTEMPLA coeficientes de presión para cuando se combinen los casos de cubiertas abovedadas o curvas (modelo 4) y edificios abiertos. Si se ingresa dicha opción, el programa arrojará un error.} 
+	
+	\item \textbf{PREDIMENSIONADO}: se asigna manualmente los perfiles para ser verificados con la siguiente sintaxis: Elemento Tipo-Alma-Ala-Rigidizador-Espesor, donde:\\
+	\textbf{Elemento}: puede adoptar [CS, CI, DI, DA, CO] según se trate del cordón superior, cordón inferior, diagonal, diagonal de apoyo o correa.\\
+	\textbf{Tipo}: [U, C, G] según el tipo de perfil adoptado, recordar que para cordones superior (CS) e inferior (CI) solo se puede adoptar G o U, para las diagonales (DI y DA) U o C y para las correas (CO) sólo se puede adoptar C.\\
+	\textbf{Alma}: Alma del perfil en [mm].\\
+	\textbf{Ala}: Ala del perfil en [mm].\\
+	\textbf{Rigidizador}: Rigidizador del perfil en [mm].\\
+	\textbf{Espesor}: Espesor del perfil en [mm].
+	
+	\textit{Importante: Para que el algoritmo de optimización realice la iteración o búsqueda de mejores perfiles, es necesario indicar con un * el elemento de perfil que desea ser optimizado. Cabe aclarar que el algoritmo selecciona los perfiles que se encuentran tabulados en los ficheros ``Cordon.dat'' y ``Diagonal.dat'' explicados anteriormente.} Ejemplos:\\	
+	
+	1) Optimización total: ingresando los datos de la siguiente manera se consigue que el software optimice todos los perfiles de la cercha, permitiendo adoptar la geometría mas económica que verifica todos los estados de carga reglamentarios\\
+	CS *-*-*-*-*\\
+	CI *-*-*-*-*\\
+	DI *-*-*-*-*\\
+	DA *-*-*-*-*\\
+	CO C-140-60-20-2\\
+
+	2) Optimización parcial: se emplea para fijar ciertos parámetros y permitir al software que optimice los restantes\\
+	CS G-128- *- *-*\\
+	CI *-  *- *- *-*\\
+	DI *-  *-50- *-*\\
+	DA *-  *- *- *-3.2\\
+	CO C-140-60-20-2\\
+	En este ejemplo se adoptará perfil galera G para CS con 128mm de alma, pudiendo iterar el ala, rigidizador y espesor. Dado que el alma ha sido predimensionada, este valor quedará fijado para todas las secciones de la cercha.\\
+	El CI podrá adoptar un perfil G o U ya que no esta fijado, cuyo alma sea de 128mm.\\
+	La DI podrá ser un perfil U o C de 128mm de alma y 50mm de ala.\\
+	La DA será el mismo perfil que el DI pero con 3.2mm de espesor.\\
+	La correa será verificada y nunca ingresa en el algoritmo de optimización.
+\end{enumerate}
+
+\section{Memoria técnica}
+\label{SecInfo}
+\textbf{Generación}:
+
+Tanto la memoria técnica como el plano en DXF serán generados en una carpeta que lleva el nombre del fichero de entrada .dat. Dicha carpeta se encuentra, a su vez, dentro de la carpeta existente llamada ``Informes''.
+
+Ejemplo: Si el fichero de ingreso de datos \textbf{*.dat} lleva el nombre ``CalculoPolideportivo.dat'', el programa generará (dentro de la carpeta ``Informes'') una carpeta llamada ``Proyecto\_CalculoPolideportivo''. Dentro de dicha carpeta se tendrán distintos archivos que conforman el informe completo. 
+Si la carpeta no existe, será creada la primera vez que se corra el problema ``CalculoPolideportivo.dat''. Si la carpeta y su contenido ya existen, todo será sobre-escrito cada vez que se vuelva a correr el problema ``CalculoPolideportivo.dat''.
+
+El archivo generado siempre se llamará ``informe.html''. Solo en caso de que el edificio sea de cubierta aislada, el archivo generado se llamará ``informeCubAis.html''.
+
+\textbf{Formato del archivo}:
+
+En el caso de que \Soft no genere adecuadamente el informe en formato DOC, el mismo será generado en formato HTML. Dicho formato puede ser leído por el programa Microsoft Word. Sin embargo, en necesario que todas las figuras generadas en el informe permanezcan en la misma carpeta en la que se encuentra el archivo ``informe.html''.
+
+Se recomiendan los siguientes pasos:
+\begin{enumerate}
+	\item Cargar los datos en el archivo DAT (CalculoPolideportivo.dat en el ejemplo).
+	\item Correr el programa.
+	\item Verificar en el \textit{Command Window} de Matlab que no haya errores. Si no existen errores, el software finalizó el cálculo, lo que NO IMPLICA que todos los elementos hayan verificado.
+	\item Verificar en el \textit{Command Window} de Matlab la existencia de \textit{Warnings}\footnote{Los \textit{warnings} son avisos que arroja el programa en caso de que alguna pieza o sección del cálculo no haya verificado y sea necesario redimensionar.}
+	\item Abrir el informe desde un navegador de internet (Chrome, Firefox, etc). Esto se logra presionando las teclas Ctrl+o (control mas letra ``o''). 
+	Revisar las secciones obtenidas en el cálculo recordando que el programa NO DIMENSIONA las columnas de Hormigón Armado, las Bases ni las correas, sólo verifica el predimensionado.
+	\item Dentro del informe se puede hacer una búsqueda del símbolo "?". Dicho símbolo aparecerá en aquellas verificaciones que no han sido cumplidas. La búsqueda se puede realizar presionando las teclas Ctrl+f (control más letra ``f''), y en el cuadro ingresar el símbolo ``?'' (todo lo mencionado hasta aquí se puede hacer también desde el programa Word).
+	\item Cuando haya que modificar predimensionamientos (modificar sección de las columnas, agregar armadura de flexión o ramas de estribos, etc), se modifican dichos datos en el archivo "CalculoPolideportivo.dat", y se vuelve a correr el programa. Tener en cuenta que, al ser el mismo archivo "CalculoPolideportivo.dat", lo generado en el cálculo anterior se sobre-escribirá con los nuevos datos y puede cambiar la geometría de la cercha.
+	\item Una vez terminado el cálculo, repetir los pasos desde el 5.
+	\item Una vez que en todos los elementos y secciones verifican, se procede a la edición del informe en formato word. Abriendo el archivo ``informe.html'' con un editor de texto es posible modificar a criterio todo lo necesario. También se pueden agregar aquellos cálculos que no están contemplados en el programa o quitar aquellos que el calculista considera no necesarios.
+	\item Finalizados todos los trabajos de formato, se procede a imprimir el informe en formato PDF para generar un documento portable que contenga toda la información y las imágenes correspondientes.
+\end{enumerate}    
+
+\end{document}

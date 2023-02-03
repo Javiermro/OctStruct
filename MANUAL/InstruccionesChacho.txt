@@ -1,0 +1,35 @@
+Entrada de datos:
+
+ACERO: El programa solo contempla aceros F24.
+HORMIGÓN: El programa solo contempla hormigón de tipo H21.
+
+FACTORES (Estados de carga reglamentarios):
+Ver apéndice B del reglamento CIRSOC 102. En dicha sección se expresa la combinación de factores adecuada:
+1. C1 = 1.2 & C2 = 0.8
+2. C1 = 1.2 & C2 = 1.6
+3. C1 = 0.9 & C2 = 1.6
+
+EXPOSICIÓN Y USO
+Se pide los siguientes datos, los cuales se debe obtener del reglamento CIRSOC 102, en función de la cubierta a calcular y su emplazamiento.
+Exposición: Sección 5.6.1 del reglamento. El valor a ingresar debe ser alguna de las siguientes opciones:
+A - B - C - D
+
+Categoría de la edificación: Tabla A-1 del reglamento. El valor a ingresar debe ser alguna de las siguientes opciones:
+I - II - III - IV
+
+Velocidad básica de viento: Figura B-1 del reglamento. Ingresar el valor en las unidades indicadas en dicha tabla [m/s]
+
+Característica del edificio: Capítulo 2 del reglamento. Allí se define cómo determinar si un edificio es "Cerrado", "Parcialmente Cerrado" o "Abierto".
+Una vez determinado dicho dato, se debe ingresar alguna de las 3 siguientes opciones:
+Cerrado - PCerrad - Aislado
+
+En el 2do caso no es un error, la opción NO lleva la "o" al final.
+El 3er caso corresponde a un edificio abierto, sin embargo se utiliza la palabra "Aislado" para ser consistente con el Anexo I del reglamento (Cubiertas Aisladas), donde se detallan dos coeficientes importantes para desarrollar el cálculo en dicho caso:
+
+* La relación de bloqueo ζ, que puede tomar valores entre 0 y 1 (incluyendo los límites).
+
+* En el caso de la Posición de Bloqueo, puede adoptar solo dos valores:  0 para el bloqueo en el alero mas alto; 1: para el bloqueo en el alero mas bajo. Esto solo es para el caso de cubiertas con pendiente única. Si la cubierta es de dos pendientes, el valor de la Posición de Bloqueo es indistinto.
+
+IMPORTANTE: El reglamento CIRSOC 102 NO CONTEMPLA coeficientes de presión para cuando se combinen los casos de Cubiertas abovedadas y Edificios Abiertos. Si se ingresa dicha opción, el programa arrojará un error.
+
+
